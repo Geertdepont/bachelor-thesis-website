@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> If necessary, retain fragments for avoiding memory leaks due to configuration changes in the activities. - Bachelor Thesis site</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/mvp/mvp-27/">
+  <link rel="alternate" type="application/rss+xml" title="Bachelor Thesis site" href="/feed.xml">
+  
+  <meta name="keywords" content=" If necessary, retain fragments for avoiding memory leaks due to configuration changes in the activities., Bachelor Thesis site, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="https://github.com/Geertdepont/bachelor_thesis">Github page</a>
+        </li>
+        <li>
+          <a href="https://robertoverdecchia.github.io/papers/ICSA_2019.pdf">Referenced article</a>
+        </li>
+      </ul>
+      <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--<li class="dropdown">-->
+          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Files<b class="caret"></b></a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a rel="nofollow" target="_blank" href="https://github.com/Geertdepont/bachelor_thesis">Github</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+      <!--</ul>-->
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/#category_MVP">MVP</a>	/
+    
+  </div>
+</div>
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>MVP</h1>
+  <ul class="nav sidenav">
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <ul class="nav sidenav">
+      
+        
+      <li><a href="/mvp/mvp-16/"><b>Guideline 16:</b> Provide views with data</a></li>
+        
+      <li><a href="/mvp/mvp-17/"><b>Guideline 17:</b> Presenters should be Android- and framework-independent.</a></li>
+        
+      <li><a href="/mvp/mvp-18/"><b>Guideline 18:</b> Data provided by Models via app-scoped dedicated components.</a></li>
+        
+      <li><a href="/mvp/mvp-19/"><b>Guideline 19:</b> Clearly define contracts between Views and Presenters.</a></li>
+        
+      <li><a href="/mvp/mvp-20/"><b>Guideline 20:</b> Lifecycle of Presenters</a></li>
+        
+      <li><a href="/mvp/mvp-21/"><b>Guideline 21:</b> Avoid too many responsibilities in the Presenters</a></li>
+        
+      <li><a href="/mvp/mvp-22/"><b>Guideline 22:</b> Make Presenters dependent on Views</a></li>
+        
+      <li><a href="/mvp/mvp-23/"><b>Guideline 23:</b> Views are passive</a></li>
+        
+      <li><a href="/mvp/mvp-24/"><b>Guideline 28:</b> Keep business logic out of activities and views.</a></li>
+        
+      <li><a href="/mvp/mvp-25/"><b>Guideline 26:</b> Inject dependencies to Presenters into the Views</a></li>
+        
+      <li><a href="/mvp/mvp-26/"><b>Guideline 27:</b> Do not let presenters communicate with each other.</a></li>
+        
+      <li><a href="/mvp/mvp-27/"><b>Guideline 27:</b> Retain fragments for avoiding memory leaks</a></li>
+        
+      
+    </ul>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title"> If necessary, retain fragments for avoiding memory leaks due to configuration changes in the activities.</h1>
+              <!--
+                <p class="post-meta">May 21, 2019</p>
+              -->
+              <!--<div class="meta">Posted on <span class="postdate">May 21, 2019</span> By <a target="_blank" href="geertdepont.github.io">Geert de Pont</a></div>-->
+              <br />
+            </header>
+            <article class="post-content">
+              <h3>Why?</h3>
+<p>Fragments are destroyed and recreated with their parent Activity.
+The setRetainInstance in a fragment, allows us to skip this cycle.
+The fragment is then retained. This is used to avoid memory leaks.</p>
+
+<h3>Example</h3>
+<p>Due to time issues, I did not create an example for retaining fragments, but here is a good example.</p>
+
+<script src="https://gist.github.com/Geertdepont/d86d93767d2f95073716f3c926720d5a.js"></script>
+
+<script src="https://gist.github.com/Geertdepont/9f0fd8ea570f16fcc05df5c091fd7873.js"></script>
+
+<p>If the fragment already started before, then it does not have to be created.</p>
+
+<p>Check this <a href="https://www.androiddesignpatterns.com/2013/04/retaining-objects-across-config-changes.html">page</a> to view the complete repository.</p>
+
+
+            </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2014-2019 <a href=""><code>Geert de Pont</code></a>.</p>
+	</div>
+</footer>
+
+  </body>
+</html>
+

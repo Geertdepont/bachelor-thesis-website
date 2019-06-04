@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decouple components and explicitly inject/manage the dependencies among them - Bachelor Thesis site</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/generic/generic-1/">
+  <link rel="alternate" type="application/rss+xml" title="Bachelor Thesis site" href="/feed.xml">
+  
+  <meta name="keywords" content="Decouple components and explicitly inject/manage the dependencies among them, Bachelor Thesis site, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="https://github.com/Geertdepont/bachelor_thesis">Github page</a>
+        </li>
+        <li>
+          <a href="https://robertoverdecchia.github.io/papers/ICSA_2019.pdf">Referenced article</a>
+        </li>
+      </ul>
+      <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--<li class="dropdown">-->
+          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Files<b class="caret"></b></a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a rel="nofollow" target="_blank" href="https://github.com/Geertdepont/bachelor_thesis">Github</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+      <!--</ul>-->
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/#category_Generic">Generic</a>	/
+    
+  </div>
+</div>
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>Generic</h1>
+  <ul class="nav sidenav">
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <ul class="nav sidenav">
+      
+        
+      <li><a href="/generic/generic-1/"><b>Guideline 1:</b> Decouple components</a></li>
+        
+      <li><a href="/generic/generic-2/"><b>Guideline 2:</b> Design independent components</a></li>
+        
+      <li><a href="/generic/generic-3/"><b>Guideline 3:</b> Counter the tendency of Activities to grow too big</a></li>
+        
+      <li><a href="/generic/generic-4/"><b>Guideline 4:</b> Separation of concerns in your architecture</a></li>
+        
+      <li><a href="/generic/generic-5/"><b>Guideline 5:</b> Select architectual pattern</a></li>
+        
+      <li><a href="/generic/generic-6/"><b>Guideline 6:</b> Organize packages</a></li>
+        
+      <li><a href="/generic/generic-7/"><b>Guideline 7:</b> Take advantage of libraries</a></li>
+        
+      <li><a href="/generic/generic-8/"><b>Guideline 8:</b> Cache data</a></li>
+        
+      <li><a href="/generic/generic-9/"><b>Guideline 9:</b> Use interfaces</a></li>
+        
+      <li><a href="/generic/generic-10/"><b>Guideline 10:</b> Avoid nested callbacks</a></li>
+        
+      <li><a href="/generic/generic-11/"><b>Guideline 11:</b> Coding standards</a></li>
+        
+      <li><a href="/generic/generic-12/"><b>Guideline 12:</b> Use a dedicated module</a></li>
+        
+      <li><a href="/generic/generic-13/"><b>Guideline 13:</b> Lifecycle of android components</a></li>
+        
+      <li><a href="/generic/generic-14/"><b>Guideline 14:</b> Designing background tasks</a></li>
+        
+      <li><a href="/generic/generic-15/"><b>Guideline 15:</b> Permissions</a></li>
+        
+      
+    </ul>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Decouple components and explicitly inject/manage the dependencies among them</h1>
+              <!--
+                <p class="post-meta">May 21, 2019</p>
+              -->
+              <!--<div class="meta">Posted on <span class="postdate">May 21, 2019</span> By <a target="_blank" href="geertdepont.github.io">Geert de Pont</a></div>-->
+              <br />
+            </header>
+            <article class="post-content">
+              <h3>Why?</h3>
+<p>While not strictly necessary, utilizing a dependency injection framework
+can drastically simplify the management of dependencies between Android architectural components. 
+This supports a clean decoupling of architectural components and avoids unnecessary boilerplate for connecting them.
+ Doing so not only improves the maintainability of the app, but also improves its testability by providing the possibility 
+ to inject mock implementations. The Dagger framework is commonly recommended to inject dependencies and solve problems 
+ afflicting reflection-based solutions.</p>
+
+<h3>Introduction</h3>
+<p>Dependency injection is a technique whereby one object supplies dependencies of another object.
+So let’s say I’m a chef in a kitchen. And I need to make meals for the customers.
+But if I don’t have the tools to create my dishes, nothing happens. I crash.
+So we need someone to supply the tools, which is <b>Dagger</b>.</p>
+
+<p><b>Dagger</b> tells where all the dependencies are, and tells the objects not to worry. Because Dagger will provide the 
+dependencies. To perform this dependency injection, dagger uses the following annotation:</p>
+
+<ul>
+  <li><b>@Module and @Provides:</b> These classes provide the dependencies.</li>
+  <li><b>@Inject: </b> The field which will be injected, this can be a field, a constructor or a method.</li>
+  <li><b>@Component:</b> Which uses the selected modules, and performs the dependency injection.</li>
+</ul>
+
+<h3>Example</h3>
+<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">MVP login Application</a>. The event diagram of the MVP login:</p>
+
+<figure>
+  <img src="/assets/MVPLogin_injection.png" alt="Login Injection" width="700" />
+</figure>
+
+<p>The lifecycle of our components:</p>
+<figure>
+  <img src="/assets/Component_lifecycle.png" alt="Login Injection" width="500" />
+</figure>
+
+<p>As you can see the AuthComponent gets added to the App component after the validation of the credentials.</p>
+
+<p>We will now focus on the AuthComponent.
+The AuthComponent uses the AuthModule. And allows two components to be added to this component:</p>
+<ul>
+<li>The GreetComponent</li>
+<li>The ViewUserComponent</li>
+</ul>
+
+<script src="https://gist.github.com/Geertdepont/b5216a57b6975424936c21f1a3f639df.js"></script>
+
+<p>The AuthModule provides whatever the AuthComponent needs. In this case the AuthComponent only needs to provide the credentials.
+So a provideCredentials method is added.</p>
+
+<script src="https://gist.github.com/Geertdepont/533cae68ef7bbfc49a45cde4b8cd30d6.js"></script>
+
+<p>When the validation of the login has succeeded, the AuthComponent gets added to the AppComponent.
+Also the credentials from the AuthComponent are being set with the given username.</p>
+
+<script src="https://gist.github.com/Geertdepont/b1509c2930f9f4a6d472329fd8aefffa.js"></script>
+
+<p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">Github page</a> to view the complete repository.</p>
+
+
+            </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2014-2019 <a href=""><code>Geert de Pont</code></a>.</p>
+	</div>
+</footer>
+
+  </body>
+</html>
+

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="geertdepont.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="geertdepont.github.io/" rel="alternate" type="text/html" /><updated>2019-06-04T17:29:10+02:00</updated><id>geertdepont.github.io/feed.xml</id><title type="html">Bachelor Thesis site</title><subtitle>This website is created for my bachelor thesis. In my bachelor thesis I describe 42 guidelines for creating good Android applications. These guidelines are formed in the https://robertoverdecchia.github.io/papers/ICSA_2019.pdf paper.</subtitle><author><name>Geert de Pont</name></author><entry><title type="html">Decouple components and explicitly inject/manage the dependencies among them</title><link href="geertdepont.github.io/generic/generic-1/" rel="alternate" type="text/html" title="Decouple components and explicitly inject/manage the dependencies among them" /><published>2019-05-21T01:00:41+02:00</published><updated>2019-05-21T01:00:41+02:00</updated><id>geertdepont.github.io/generic/generic-1</id><content type="html" xml:base="geertdepont.github.io/generic/generic-1/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;While not strictly necessary, utilizing a dependency injection framework
+can drastically simplify the management of dependencies between Android architectural components. 
+This supports a clean decoupling of architectural components and avoids unnecessary boilerplate for connecting them.
+ Doing so not only improves the maintainability of the app, but also improves its testability by providing the possibility 
+ to inject mock implementations. The Dagger framework is commonly recommended to inject dependencies and solve problems 
+ afflicting reflection-based solutions.&lt;/p&gt;
+
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;Dependency injection is a technique whereby one object supplies dependencies of another object.
+So let’s say I’m a chef in a kitchen. And I need to make meals for the customers.
+But if I don’t have the tools to create my dishes, nothing happens. I crash.
+So we need someone to supply the tools, which is &lt;b&gt;Dagger&lt;/b&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Dagger&lt;/b&gt; tells where all the dependencies are, and tells the objects not to worry. Because Dagger will provide the 
+dependencies. To perform this dependency injection, dagger uses the following annotation:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;b&gt;@Module and @Provides:&lt;/b&gt; These classes provide the dependencies.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;@Inject: &lt;/b&gt; The field which will be injected, this can be a field, a constructor or a method.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;@Component:&lt;/b&gt; Which uses the selected modules, and performs the dependency injection.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;We created a simple &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;MVP login Application&lt;/a&gt;. The event diagram of the MVP login:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/MVPLogin_injection.png&quot; alt=&quot;Login Injection&quot; width=&quot;700&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The lifecycle of our components:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/Component_lifecycle.png&quot; alt=&quot;Login Injection&quot; width=&quot;500&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As you can see the AuthComponent gets added to the App component after the validation of the credentials.&lt;/p&gt;
+
+&lt;p&gt;We will now focus on the AuthComponent.
+The AuthComponent uses the AuthModule. And allows two components to be added to this component:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The GreetComponent&lt;/li&gt;
+&lt;li&gt;The ViewUserComponent&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/b5216a57b6975424936c21f1a3f639df.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The AuthModule provides whatever the AuthComponent needs. In this case the AuthComponent only needs to provide the credentials.
+So a provideCredentials method is added.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/533cae68ef7bbfc49a45cde4b8cd30d6.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;When the validation of the login has succeeded, the AuthComponent gets added to the AppComponent.
+Also the credentials from the AuthComponent are being set with the given username.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/b1509c2930f9f4a6d472329fd8aefffa.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;Github page&lt;/a&gt; to view the complete repository.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? While not strictly necessary, utilizing a dependency injection framework can drastically simplify the management of dependencies between Android architectural components. This supports a clean decoupling of architectural components and avoids unnecessary boilerplate for connecting them. Doing so not only improves the maintainability of the app, but also improves its testability by providing the possibility to inject mock implementations. The Dagger framework is commonly recommended to inject dependencies and solve problems afflicting reflection-based solutions.</summary></entry><entry><title type="html">Design components to be as independent as possible, build them around the features of the app and make them Android-independent.</title><link href="geertdepont.github.io/generic/generic-2/" rel="alternate" type="text/html" title=" Design components to be as independent as possible, build them around the features of the app and make them Android-independent." /><published>2019-05-21T01:00:40+02:00</published><updated>2019-05-21T01:00:40+02:00</updated><id>geertdepont.github.io/generic/generic-2</id><content type="html" xml:base="geertdepont.github.io/generic/generic-2/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;As also remarked by two
+interviewees, a recurrent problem arises when common functionalities 
+are not provided in base classes. This often leads to
+duplicated code, reducing the maintainability and testability of
+the app. Ideally, components should be independent from each
+other and their business logic should be clear and explicitly
+separated. By quoting one of the data points “your architecture
+should scream the purpose of the app”. Decoupled components
+make it easier to focus on app functionalities and their issues,
+without dealing with bloatware. Additionally, this enables a
+higher testability of the core logic of the app by making components 
+unit-testable (ideally without requiring an emulator).
+Finally, by decoupling the business logic from frameworks,
+more emphasis is put on the business logic, making an app
+more testable, maintainable, and of low technical debt.&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;We created a simple &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot;&gt;Boss Application&lt;/a&gt; which retrieves users from a dummy API.&lt;/p&gt;
+
+&lt;p&gt;The three main components from the BossApplication are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Model&lt;/li&gt;
+&lt;li&gt;Presenter&lt;/li&gt;
+&lt;li&gt;View&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The event diagram of the Boss Application:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/BossApplication_lifecycle.png&quot; alt=&quot;Login Injection&quot; width=&quot;700&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Each component can be easily tested. Since the MainPresenter has no actual reference to the MainActivity the 
+MainPresenter is Android-independent making this presenter testable without an emulator.
+The MainPresenter is also not able to call methods from the MainActivity which are not specified in the MainView.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/f028365580bd4d1543d08da070774860.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Which has a reference to the MainView.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/608af87f6a302b6d5f66da2582dd5b0c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot;&gt;Github page&lt;/a&gt; to view the complete repository.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? As also remarked by two interviewees, a recurrent problem arises when common functionalities are not provided in base classes. This often leads to duplicated code, reducing the maintainability and testability of the app. Ideally, components should be independent from each other and their business logic should be clear and explicitly separated. By quoting one of the data points “your architecture should scream the purpose of the app”. Decoupled components make it easier to focus on app functionalities and their issues, without dealing with bloatware. Additionally, this enables a higher testability of the core logic of the app by making components unit-testable (ideally without requiring an emulator). Finally, by decoupling the business logic from frameworks, more emphasis is put on the business logic, making an app more testable, maintainable, and of low technical debt.</summary></entry><entry><title type="html">Counter the tendency of Activities to grow too big in size due to functionality/responsibility bloat.</title><link href="geertdepont.github.io/generic/generic-3/" rel="alternate" type="text/html" title="Counter the tendency of Activities to grow too big in size due to functionality/responsibility bloat." /><published>2019-05-21T01:00:39+02:00</published><updated>2019-05-21T01:00:39+02:00</updated><id>geertdepont.github.io/generic/generic-3</id><content type="html" xml:base="geertdepont.github.io/generic/generic-3/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;Android
+Activities should ideally contain exclusively logic handling the
+user interface (UI) and operating system interactions. Nevertheless, a common architectural issue consists of delegating too
+many functionalities and responsibilities to a single Activity.
+This leads to Activities slowly becoming god-classes. As the
+Android framework does not support the reuse of methods
+implemented in activities, code tends to be directly copied into
+other ones, increasing code duplication and impacting negatively the app’s maintainability. Additionally, testing might
+become a challenging task, as complex business logic could
+reside in Activities, which by themselves result arduous to unit
+test. Finally, as activities are kept in memory at runtime, “godactivities” can lead to the deterioration of apps’ performance.&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;We created a simple &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;MVP login Application&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Too counter the tendency of Activities to grow too big. We let activities only be the visual 
+aspect of our application. Our LoginActivity implements the LoginView class.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/93684c21bc51c4b7379f18ff47596791.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Our LoginActivity has two text fields:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Email field &lt;b&gt;(edit_email)&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Password field &lt;b&gt;(edit_password)&lt;/b&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And two buttons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create new user &lt;b&gt;(buttonAddUser)&lt;/b&gt;&lt;/li&gt;
+&lt;li&gt;Login button &lt;b&gt;(btnLogin)&lt;/b&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/f46beeeb2ee18b532d02fbadf38cd237.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The event diagram of the Login Application:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/MVPLogin_event_diagram.png&quot; alt=&quot;Login Event diagram&quot; width=&quot;700&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We do not want our LoginActivity to create a database, and store and retrieve all the users.
+We want to share as much responsibilities to another layer as possible.&lt;/p&gt;
+
+&lt;p&gt;Our LoginActivity only does what our presenter tells it to do. So our LoginActivity does not become a God class. This also makes it easier to test our views and presenter.&lt;/p&gt;
+
+&lt;p&gt;Our interactor checks if the password given matches the password of the gotten user.
+This is a simplistic example and in real life applications, passwords would have been checked with hashing.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;Github page&lt;/a&gt; to view the complete repository.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Android Activities should ideally contain exclusively logic handling the user interface (UI) and operating system interactions. Nevertheless, a common architectural issue consists of delegating too many functionalities and responsibilities to a single Activity. This leads to Activities slowly becoming god-classes. As the Android framework does not support the reuse of methods implemented in activities, code tends to be directly copied into other ones, increasing code duplication and impacting negatively the app’s maintainability. Additionally, testing might become a challenging task, as complex business logic could reside in Activities, which by themselves result arduous to unit test. Finally, as activities are kept in memory at runtime, “godactivities” can lead to the deterioration of apps’ performance.</summary></entry><entry><title type="html">Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration.</title><link href="geertdepont.github.io/generic/generic-4/" rel="alternate" type="text/html" title="Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration." /><published>2019-05-21T01:00:38+02:00</published><updated>2019-05-21T01:00:38+02:00</updated><id>geertdepont.github.io/generic/generic-4</id><content type="html" xml:base="geertdepont.github.io/generic/generic-4/">&lt;h3&gt;Why?&lt;/h3&gt;
+
+&lt;p&gt;Architectural components of an app should
+have a single, well defined, responsibility. As a component
+grows bigger, it should be split up. By following the single
+responsibility principle, the app architecture naturally supports
+the structure of developer teams and development stages.
+Additionally, monoliths are detected in the early stages and
+modules become testable in isolation. Finally, if the app is built
+using Gradle, modularization can improve the performance of
+the build process and ease the development of Instant apps
+.
+It is important to notice that, while modularization may imply
+little effort if considered early in the project, it might become
+an extremely expensive process in later development stages&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;We created a simple &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;MVP login Application&lt;/a&gt;. 
+The AuthComponent has one responsibility: Inject the specified modules after login. 
+There are two activities that can take place after login:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Get a greeting&lt;/li&gt;
+&lt;li&gt;View other users&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So for both of these activities we create a component. A &lt;b&gt;GreetComponent&lt;/b&gt; and a &lt;b&gt;ViewUserComponent&lt;/b&gt;.
+The &lt;b&gt;GreetComponent&lt;/b&gt; injects everything that is needed for the GreetActivity.
+The &lt;b&gt;ViewUserComponent&lt;/b&gt; injects everything that is needed for the ViewUserActivity.&lt;/p&gt;
+
+&lt;p&gt;We will only look at the &lt;b&gt;GreetComponent&lt;/b&gt;.
+The &lt;b&gt;GreetComponent&lt;/b&gt; uses the &lt;b&gt;GreetModule&lt;/b&gt;. Which should provide everything the GreetActivity needs.
+&lt;script src=&quot;https://gist.github.com/Geertdepont/f5f4acc6f143210c79305f7b58100a47.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;As we can see the GreetActivity needs a GreetPresenter. The GreetPresenter needs a GreetView and Credentials.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/7d81c4202d16157d0bd7d0c5a90d4f5d.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;So all of this needs to be specified in the GreetModule.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/fb6218336aa43df01f54a736ada4865f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;If we did not create a specific AuthComponent for this, we had to put everything into the AppComponent. 
+Which would then have too many responsibilities.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/AppComponentWithoutAuth.png&quot; alt=&quot;AppComponent without AuthComponent&quot; width=&quot;500&quot; /&gt;
+&lt;/figure&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why?</summary></entry><entry><title type="html">When starting a new project, carefully select a fitting architectural pattern to adhere to.</title><link href="geertdepont.github.io/generic/generic-5/" rel="alternate" type="text/html" title="When starting a new project, carefully select a fitting architectural pattern to adhere to." /><published>2019-05-21T01:00:37+02:00</published><updated>2019-05-21T01:00:37+02:00</updated><id>geertdepont.github.io/generic/generic-5</id><content type="html" xml:base="geertdepont.github.io/generic/generic-5/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;Picking the
+right architectural pattern (e.g., MVP or MVVM) for the
+context and business goals of the app is a crucial decision. By
+adhering to an architectural patter selected a priori, separating
+responsibilities into components becomes a more straightforward process, and the growth of architectural technical debt is
+hindered. It is important to note that, when a certain level of
+adaptability/maintainability is not required, the selection of an
+ill-suited architectural pattern might lead to over-engineering.
+Choosing the architectural pattern to adopt is hence a nontrivial decision which should be taken by considering the
+context of apps, and their business/organizational goals.
+2) MVP-specific Android Architecture Guidelines: The second most considered theme regards practices related to the
+MVP architectural pattern. In total, 40 practices are collected
+and synthesized in the following 12 MVP-specific guidelines&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;We created two examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MVVM example&lt;/li&gt;
+&lt;li&gt;MVP example&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample&quot;&gt;MVVM example&lt;/a&gt; depicted:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/MVVM_depicted.png&quot; alt=&quot;MVVM depicted&quot; width=&quot;700&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;MVVM example&lt;/a&gt; depicted:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/MVPLogin_depicted.png&quot; alt=&quot;MVVM depicted&quot; width=&quot;700&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Check out both the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample&quot;&gt;MVVM example&lt;/a&gt; and the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;MVP example&lt;/a&gt; on these links.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Picking the right architectural pattern (e.g., MVP or MVVM) for the context and business goals of the app is a crucial decision. By adhering to an architectural patter selected a priori, separating responsibilities into components becomes a more straightforward process, and the growth of architectural technical debt is hindered. It is important to note that, when a certain level of adaptability/maintainability is not required, the selection of an ill-suited architectural pattern might lead to over-engineering. Choosing the architectural pattern to adopt is hence a nontrivial decision which should be taken by considering the context of apps, and their business/organizational goals. 2) MVP-specific Android Architecture Guidelines: The second most considered theme regards practices related to the MVP architectural pattern. In total, 40 practices are collected and synthesized in the following 12 MVP-specific guidelines</summary></entry><entry><title type="html">Organize your Java/Kotlin packages and files either by layer or by app feature.</title><link href="geertdepont.github.io/generic/generic-6/" rel="alternate" type="text/html" title=" Organize your Java/Kotlin packages and files either by layer or by app feature." /><published>2019-05-21T01:00:36+02:00</published><updated>2019-05-21T01:00:36+02:00</updated><id>geertdepont.github.io/generic/generic-6</id><content type="html" xml:base="geertdepont.github.io/generic/generic-6/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;When organizing your packages and files by layer or by feature, it becomes easier for 
+programmers to find the code which performs a certain aspect of your application.
+By layer or by feature both have their advantages. However when packaging by layer, 
+whenever a feature has to be changed, multiple files in different packages need to be changed. 
+As however in packaging by feature this is less the case.&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;Our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot;&gt;MVVM-example&lt;/a&gt; somehow needs to reflect that it uses this architecture.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/Rxjava_packages.png&quot; alt=&quot;Rxjava packages&quot; width=&quot;300&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As you can see there are three main packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Service&lt;/li&gt;
+&lt;li&gt;View&lt;/li&gt;
+&lt;li&gt;ViewModel&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the service package everything with data preparation is taken care of.
+E.g. fetching data from the server. Putting the fetched data into mutableLiveData.
+The ViewModel exposes methods which help maintain the view.&lt;/p&gt;
+
+&lt;p&gt;Our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;MVP&lt;/a&gt; also somehow needs to reflect it’s architecture.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/MVP_packages.png&quot; alt=&quot;MVP packages&quot; width=&quot;300&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As you can see there are three main packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;View&lt;/li&gt;
+&lt;li&gt;Model&lt;/li&gt;
+&lt;li&gt;Presenter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Check out both the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot;&gt;MVVM example&lt;/a&gt; and the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;MVP example&lt;/a&gt; on these links.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? When organizing your packages and files by layer or by feature, it becomes easier for programmers to find the code which performs a certain aspect of your application. By layer or by feature both have their advantages. However when packaging by layer, whenever a feature has to be changed, multiple files in different packages need to be changed. As however in packaging by feature this is less the case.</summary></entry><entry><title type="html">Take full advantage of libraries. Do not try to reinvent the wheel and loose time by implementing boilerplate code. Focus on what makes your app stand out from the rest and delegate what is left to libraries.</title><link href="geertdepont.github.io/generic/generic-7/" rel="alternate" type="text/html" title="Take full advantage of libraries. Do not try to reinvent the wheel and loose time by implementing boilerplate code. Focus on what makes your app stand out from the rest and delegate what is left to libraries." /><published>2019-05-21T01:00:35+02:00</published><updated>2019-05-21T01:00:35+02:00</updated><id>geertdepont.github.io/generic/generic-7</id><content type="html" xml:base="geertdepont.github.io/generic/generic-7/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;Taking full advantage of libraries not only saves time, but could also be an improvement of 
+your own implementation. However do check the ratings of the library or dive into the code, to 
+see that you are working with high quality and bug free code.&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;We created a simple &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot;&gt;MVVM example&lt;/a&gt;. 
+This example uses RxJava. Which is a library for creating and 
+receiving asynchronous calls by creating Observers and Observables.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/047f1270a4745522b26927ae208eabfe.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;In the getContributorList() method, we actually perform multiple API requests.
+myAPI.getRepositories() returns the Repositories from my github account.
+Then .flatMapIterable(x -&amp;gt; x) flattens a stream of iterables. Then for each repository, we fetch 
+the contributors, and sort them based on the amount of contributions.&lt;/p&gt;
+
+&lt;p&gt;If we had to write this code without RxJava, we would end up with a for loop within two nested callbacks. 
+Which would lead to ugly code.&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot;&gt;MVVM example&lt;/a&gt; to view the complete repository.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Taking full advantage of libraries not only saves time, but could also be an improvement of your own implementation. However do check the ratings of the library or dive into the code, to see that you are working with high quality and bug free code.</summary></entry><entry><title type="html">Locally cache data for supporting offline-first experience.</title><link href="geertdepont.github.io/generic/generic-8/" rel="alternate" type="text/html" title="Locally cache data for supporting offline-first experience." /><published>2019-05-21T01:00:34+02:00</published><updated>2019-05-21T01:00:34+02:00</updated><id>geertdepont.github.io/generic/generic-8</id><content type="html" xml:base="geertdepont.github.io/generic/generic-8/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;Using a cache to store data, enhances the user’s experience. Activities are destroyed 
+constantly. Retrieving data from the server every time an activity would be destroyed, 
+would be a waste of mobile data and a bad user experience. 
+A synchronization of a local database and the webservice can solve this problem. 
+Whenever the local database is empty, or the data is not valid, retrieve data from the web server.&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;We created a simple &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot;&gt;application&lt;/a&gt; which retrieves employees from this url: http://dummy.restapiexample.com/api/v1/&lt;/p&gt;
+
+&lt;p&gt;If the employees were already retrieved within 5000 milliseconds, the repository returns the 
+cache instead of making a new API request.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/BossApplication_lifecycle.png&quot; alt=&quot;Rxjava packages&quot; width=&quot;600&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;In the mainActivity when the button is clicked, the function showEmployees is called from the 
+MainPresenter.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/64ab029fdf46c051eae227887eec24cf.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The MainPresenter then asks the repository to show the users with the getList(this) function, 
+which it will listen to with using the onSuccess or onError function.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/e8e9996406425a39462b5f03ec0896ff.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The repository contains a EmployeeService and a EmployeeCache. 
+The EmployeeService makes API requests.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/6ecccdffb113b1b2e581775384f4bc6c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;When the getList() function from the Repository is called.
+It checks if the cache is still valid. That is if the data was recently updated and not null.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/e484aa2688cac63a9284cc156da2a000.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;If not, then a new listener is created. Which is used during the API request.
+Using a cache results in a faster response.&lt;/p&gt;
+
+&lt;p&gt;When using online services, do not forget to add the &lt;uses-permission&gt; in the 
+AndroidManifest.xml&lt;/uses-permission&gt;&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot;&gt;Github page&lt;/a&gt; to view the complete repository.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using a cache to store data, enhances the user’s experience. Activities are destroyed constantly. Retrieving data from the server every time an activity would be destroyed, would be a waste of mobile data and a bad user experience. A synchronization of a local database and the webservice can solve this problem. Whenever the local database is empty, or the data is not valid, retrieve data from the web server.</summary></entry><entry><title type="html">Use exclusively interfaces to let app modules communicate. This protects the architectural structure and helps defining a clear responsibility of modules.</title><link href="geertdepont.github.io/generic/generic-9/" rel="alternate" type="text/html" title="Use exclusively interfaces to let app modules communicate. This protects the architectural structure and helps defining a clear responsibility of modules." /><published>2019-05-21T01:00:33+02:00</published><updated>2019-05-21T01:00:33+02:00</updated><id>geertdepont.github.io/generic/generic-9</id><content type="html" xml:base="geertdepont.github.io/generic/generic-9/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;Using interfaces for linking modules, is a great way for module communication. 
+This way modules can’t access methods that are not declared in the interface. 
+And helps define a clear overview of what each module does. 
+Using interfaces for linking modules, is a great way for module communication. 
+This way modules can’t access methods that are not declared in the interface. 
+And helps define a clear overview of what each module does.&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;p&gt;We created a simple &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot;&gt;application&lt;/a&gt; which retrieves employees from this url: http://dummy.restapiexample.com/api/v1/&lt;/p&gt;
+
+&lt;p&gt;If we take a look at the Presenter and Repository modules, we see they communicate 
+exclusively via interfaces. 
+The MainPresenter implements the OnViewEmployeesFinishedListener.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/6ecccdffb113b1b2e581775384f4bc6c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The MainPresenter then calls the getList giving itself as parameter.
+The Repository communicates back by calling the methods of the
+OnViewEmployeesFinishedListener interface.&lt;/p&gt;
+
+&lt;p&gt;OnError() is called if there does not exists a cache and the service does not work.
+OnSuccess() is called if the data is successfully retrieved from cache, or is newly retrieved from the network.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using interfaces for linking modules, is a great way for module communication. This way modules can’t access methods that are not declared in the interface. And helps define a clear overview of what each module does. Using interfaces for linking modules, is a great way for module communication. This way modules can’t access methods that are not declared in the interface. And helps define a clear overview of what each module does.</summary></entry><entry><title type="html">Avoid nested callbacks, as they could lead to a “callback hell”. Approximatively, more than 2 levels of callbacks are considered to reduce maintainability and understandability. This problem is commonly fixed by taking advantage of the RxJava library.</title><link href="geertdepont.github.io/generic/generic-10/" rel="alternate" type="text/html" title="Avoid nested callbacks, as they could lead to a “callback hell”. Approximatively, more than 2 levels of callbacks are considered to reduce maintainability and understandability. This problem is commonly fixed by taking advantage of the RxJava library." /><published>2019-05-21T01:00:32+02:00</published><updated>2019-05-21T01:00:32+02:00</updated><id>geertdepont.github.io/generic/generic-10</id><content type="html" xml:base="geertdepont.github.io/generic/generic-10/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;Using too many callbacks leads to unreadable code. 
+These callback hells often arise when multiple server requests need to be performed for one activity. 
+For example, showing the details of users. 
+First you need to know which users exist, and with each username you can request the details. 
+Using the RxJava library we can simplify our code.&lt;/p&gt;
+
+&lt;h3&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;For this example we will look at the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot;&gt;MVVM example&lt;/a&gt; to retrieve my github contributors.
+We use for this example Rxjava in combination with retrofit.
+Sometimes it is necessary to have nested callbacks.
+Like in this example, where we want to find the contributors of our repository.
+We need to know which repositories there are before we can look up, the contributors of the repository.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/5e8db18f58cabda7b8200ecdf245c553.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Our methods getRepositories() and getContributors(String repo), both return observable 
+Values. Which means that this values can be viewed by an Observer, which we need to 
+Implement.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/fe492764b668d1393b32c7c66868ac24.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;We then create a Retrofit class, which returns a Retrofit instance, which will perform our API 
+requests to “”https://api.github.com/””&lt;/p&gt;
+
+&lt;p&gt;In our repository, we will return our A Single object. Which either emits one value, or an error 
+message.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/Geertdepont/047f1270a4745522b26927ae208eabfe.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The getContributorList() performs for each Repository in my github account a new request.
+These repositories are retrieved via the myAPI.getRepositories() request.
+Then .flatMapIterable(x -&amp;gt; x) flattens a stream of iterables. So that for each repository, we can fetch the contributors, and sort them based on the amount of contributions.&lt;/p&gt;
+
+&lt;p&gt;If we had to write this code without RxJava, we would end up with a for loop within two nested callbacks. Which produces ugly code.&lt;/p&gt;
+
+&lt;p&gt;Checkout our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot;&gt;MVVM example&lt;/a&gt; to view the complete repository.&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using too many callbacks leads to unreadable code. These callback hells often arise when multiple server requests need to be performed for one activity. For example, showing the details of users. First you need to know which users exist, and with each username you can request the details. Using the RxJava library we can simplify our code.</summary></entry></feed>

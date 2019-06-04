@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Models, Views, and ViewModels should exclusively expose their state instead of state and data separately. - Bachelor Thesis site</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/mvvm/mvvm-28/">
+  <link rel="alternate" type="application/rss+xml" title="Bachelor Thesis site" href="/feed.xml">
+  
+  <meta name="keywords" content="Models, Views, and ViewModels should exclusively expose their state instead of state and data separately., Bachelor Thesis site, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="https://github.com/Geertdepont/bachelor_thesis">Github page</a>
+        </li>
+        <li>
+          <a href="https://robertoverdecchia.github.io/papers/ICSA_2019.pdf">Referenced article</a>
+        </li>
+      </ul>
+      <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--<li class="dropdown">-->
+          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Files<b class="caret"></b></a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a rel="nofollow" target="_blank" href="https://github.com/Geertdepont/bachelor_thesis">Github</a></li>-->
+          <!--</ul>-->
+        <!--</li>-->
+      <!--</ul>-->
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/#category_MVVM">MVVM</a>	/
+    
+  </div>
+</div>
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>MVVM</h1>
+  <ul class="nav sidenav">
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <ul class="nav sidenav">
+      
+        
+      <li><a href="/mvvm/mvvm-28/"><b>Guideline 29:</b> Models, Views, and ViewModels should exclusively expose their state</a></li>
+        
+      <li><a href="/mvvm/mvvm-29/"><b>Guideline 30:</b> The app should possess a single source of truth of data.</a></li>
+        
+      <li><a href="/mvvm/mvvm-30/"><b>Guideline 30:</b> Models should be evolvable/testable</a></li>
+        
+      <li><a href="/mvvm/mvvm-31/"><b>Guideline 31:</b> ViewModels should not refer to View-specific components.</a></li>
+        
+      <li><a href="/mvvm/mvvm-32/"><b>Guideline 32:</b> Views should always know about changes after ViewModels</a></li>
+        
+      <li><a href="/mvvm/mvvm-33/"><b>Guideline 33:</b> Adopt one Model for each feature of the app.</a></li>
+        
+      <li><a href="/mvvm/mvvm-34/"><b>Guideline 34:</b> Keep ViewModels as simple as possible.</a></li>
+        
+      <li><a href="/mvvm/mvvm-35/"><b>Guideline 35:</b> The state of the app should be defined in the Models only.</a></li>
+        
+      <li><a href="/mvvm/mvvm-36/"><b>Guideline 36:</b> The data produced by the Models should be reliable and of high quality.</a></li>
+        
+      <li><a href="/mvvm/mvvm-37/"><b>Guideline 37:</b> Networking or data access functionalities should be performed by Models.</a></li>
+        
+      
+    </ul>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Models, Views, and ViewModels should exclusively expose their state instead of state and data separately.</h1>
+              <!--
+                <p class="post-meta">May 21, 2019</p>
+              -->
+              <!--<div class="meta">Posted on <span class="postdate">May 21, 2019</span> By <a target="_blank" href="geertdepont.github.io">Geert de Pont</a></div>-->
+              <br />
+            </header>
+            <article class="post-content">
+              <h3>Why?</h3>
+<p>For example, to ensure that Views display upto-date content, it is recommended that ViewModels expose
+states rather than just events. This can be achieved by bundling
+together the data that needs to be displayed. In such way,
+when one of the fields to be displayed changes, a new state is
+emitted and the View is updated. This entails that each user
+interaction involves an action in the ViewModel, enabling a
+clean separation of concerns between MVVM components.</p>
+
+<h3>Example</h3>
+<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample">MVVM example</a>.</p>
+
+<figure>
+  <img src="/assets/MVVM_event.png" alt="MVVM event diagram" width="600" />
+</figure>
+
+<p>This is our whole application.
+	There is no business logic in the view.
+	All the business logic is moved to the ViewModel
+When we want to add a new Note we start a new AddNoteActivity.
+If we submit the form with the Note details, the note is then submitted to the NoteViewModel which then handles the request.</p>
+
+<script src="https://gist.github.com/Geertdepont/b0ce80924a9962d0f68f48ea517521c8.js"></script>
+
+<p>Check this <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample">page</a> to view the complete repository.</p>
+
+
+            </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2014-2019 <a href=""><code>Geert de Pont</code></a>.</p>
+	</div>
+</footer>
+
+  </body>
+</html>
+
