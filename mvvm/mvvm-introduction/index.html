@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Each architectural layer should possess its own data model - Bachelor Thesis site</title>
+  <title>What is MVVM? - Bachelor Thesis site</title>
 
   <link rel="shortcut icon" href="/styles/images/favicon.png">
   <link rel="icon" href="/styles/images/favicon.png">
@@ -13,10 +13,10 @@
   <link rel="stylesheet" href="/styles/css/index.css">
   <link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/styles/css/syntax.css">
-  <link rel="canonical" href="/clean/clean-41/">
+  <link rel="canonical" href="/mvvm/mvvm-introduction/">
   <link rel="alternate" type="application/rss+xml" title="Bachelor Thesis site" href="/feed.xml">
   
-  <meta name="keywords" content="Each architectural layer should possess its own data model, Bachelor Thesis site, ">
+  <meta name="keywords" content="What is MVVM?, Bachelor Thesis site, ">
   <meta name="description" content="">
 
   <script src="/styles/js/jquery.min.js"></script>
@@ -76,7 +76,7 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/#category_Clean">Clean</a>	/
+    	<a href="/#category_MVVM">MVVM</a>	/
     
   </div>
 </div>
@@ -88,22 +88,34 @@
     <div class="col-md-3">
       <div class="sidebar hidden-print" role="complementary">
         <div id="navigation">
-  <h1>Clean</h1>
+  <h1>MVVM</h1>
   <ul class="nav sidenav">
   </ul>
   <div style="height: 200px;width: 200px;">
     <ul class="nav sidenav">
       
         
-      <li><a href="/clean/clean-38/"><b>Guideline 38:</b> Decoupled business logic</a></li>
+      <li><a href="/mvvm/mvvm-introduction/"><b>Guideline Introduction:</b> What is MVVM?</a></li>
         
-      <li><a href="/clean/clean-39/"><b>Guideline 39:</b> The outer architectural layer</a></li>
+      <li><a href="/mvvm/mvvm-28/"><b>Guideline 29:</b> Models, Views, and ViewModels should exclusively expose their state</a></li>
         
-      <li><a href="/clean/clean-40/"><b>Guideline 40:</b> Framework and devices layer</a></li>
+      <li><a href="/mvvm/mvvm-29/"><b>Guideline 30:</b> The app should possess a single source of truth of data.</a></li>
         
-      <li><a href="/clean/clean-41/"><b>Guideline 41:</b> Each architectural layer should possess its own data model</a></li>
+      <li><a href="/mvvm/mvvm-30/"><b>Guideline 30:</b> Models should be evolvable/testable</a></li>
         
-      <li><a href="/clean/clean-42/"><b>Guideline 42:</b> The UI thread </a></li>
+      <li><a href="/mvvm/mvvm-31/"><b>Guideline 31:</b> ViewModels should not refer to View-specific components.</a></li>
+        
+      <li><a href="/mvvm/mvvm-32/"><b>Guideline 32:</b> Views should always know about changes after ViewModels</a></li>
+        
+      <li><a href="/mvvm/mvvm-33/"><b>Guideline 33:</b> Adopt one Model for each feature of the app.</a></li>
+        
+      <li><a href="/mvvm/mvvm-34/"><b>Guideline 34:</b> Keep ViewModels as simple as possible.</a></li>
+        
+      <li><a href="/mvvm/mvvm-35/"><b>Guideline 35:</b> The state of the app should be defined in the Models only.</a></li>
+        
+      <li><a href="/mvvm/mvvm-36/"><b>Guideline 36:</b> The data produced by the Models should be reliable and of high quality.</a></li>
+        
+      <li><a href="/mvvm/mvvm-37/"><b>Guideline 37:</b> Networking or data access functionalities should be performed by Models.</a></li>
         
       
     </ul>
@@ -117,7 +129,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Each architectural layer should possess its own data model</h1>
+              <h1 class="post-title">What is MVVM?</h1>
               <!--
                 <p class="post-meta">May 21, 2019</p>
               -->
@@ -125,29 +137,27 @@
               <br />
             </header>
             <article class="post-content">
-              <h3>Why?</h3>
-<p>By implementing a data model at every
-layer, a high degree of decoupling between layers can be
-achieved. Specifically, by following this guideline, the outer
-layers of apps can be implemented without any explicit knowledge of the implementation details of the inner layers. This
-means that the origin of the data becomes transparent to the
-client and hence, in a repository pattern fashion, data sources
-can be added, removed, or changed without much effort.</p>
+              <h3>The Model-View-ViewModel architecture</h3>
+<p>The MVVM architecture consists of three components:</p>
+<ul>
+<li><b>Model</b> represents the datasource. This layer is accessed to update/store and retrieve the data.</li>
+<li><b>View-Model</b> exposes methods and variables for the view to use. </li>
+<li><b>View</b> uses the variables and methods from the View-Model.</li>
+</ul>
+
+<h3>Difference MVVM and MVP</h3>
+<p>In MVVM the ViewModel exposes it’s methods and variables for the View to use it.
+In MVP the Presenter has a one-to-one relationship with the View, and decides what the view should do.</p>
 
 <h3>Example</h3>
-<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">MVP login Application</a>.</p>
+<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExamples">MVVM example</a>. As you can see, the activities perform the requests:
+<b>getAllNotes()</b> and <b>insert(note)</b>. The ViewModels, perform the requests to the Model (NoteRepository).</p>
 
 <figure>
-  <img src="/assets/MVPLogin_depicted.png" alt="Login depicted" width="600" />
+  <img src="/assets/MVVM_event.png" alt="MVVM depicted" width="600" />
 </figure>
 
-<p>Each layer works with its own model.
-The View layer works with the Presenter.
-The Presenter works with the Model.
-If we change the way we store the data from the model, the View would not need to know.
-Since the View receives the same data.</p>
-
-<p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">Github page</a> to view the complete repository.</p>
+<p>Checkout the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExamples">github page</a> to view the full repository.</p>
 
 
             </article>

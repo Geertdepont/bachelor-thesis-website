@@ -187,7 +187,9 @@ The <b>GreetComponent</b> uses the <b>GreetModule</b>. Which should provide ever
 
 <script src="https://gist.github.com/Geertdepont/fb6218336aa43df01f54a736ada4865f.js"></script>
 
-<p>If we did not create a specific AuthComponent for this, we had to put everything into the AppComponent. 
+<p>The GreetPresenter calls the showMessage(mCredentials.getPersonalizedGreeting()) on the <b>GreetView</b>.
+This way each Architectural component has a single well defined responsibility.
+If we did not create a specific AuthComponent for this, we had to put everything into the AppComponent. 
 Which would then have too many responsibilities.</p>
 
 <figure>

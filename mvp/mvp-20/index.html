@@ -95,6 +95,8 @@
     <ul class="nav sidenav">
       
         
+      <li><a href="/mvp/mvp-introduction/"><b>Guideline Introduction:</b> What is MVP?</a></li>
+        
       <li><a href="/mvp/mvp-16/"><b>Guideline 16:</b> Provide views with data</a></li>
         
       <li><a href="/mvp/mvp-17/"><b>Guideline 17:</b> Presenters should be Android- and framework-independent.</a></li>
@@ -111,11 +113,11 @@
         
       <li><a href="/mvp/mvp-23/"><b>Guideline 23:</b> Views are passive</a></li>
         
-      <li><a href="/mvp/mvp-24/"><b>Guideline 28:</b> Keep business logic out of activities and views.</a></li>
+      <li><a href="/mvp/mvp-24/"><b>Guideline 24:</b> Keep business logic out of activities and views.</a></li>
         
-      <li><a href="/mvp/mvp-25/"><b>Guideline 26:</b> Inject dependencies to Presenters into the Views</a></li>
+      <li><a href="/mvp/mvp-25/"><b>Guideline 25:</b> Inject dependencies to Presenters into the Views</a></li>
         
-      <li><a href="/mvp/mvp-26/"><b>Guideline 27:</b> Do not let presenters communicate with each other.</a></li>
+      <li><a href="/mvp/mvp-26/"><b>Guideline 26:</b> Do not let presenters communicate with each other.</a></li>
         
       <li><a href="/mvp/mvp-27/"><b>Guideline 27:</b> Retain fragments for avoiding memory leaks</a></li>
         
@@ -147,13 +149,15 @@ Presenters should not be responsible for
 data-related tasks. It is hence advised not to retain Presenters.
 An alternative solution would be to use a caching mechanism
 to retain data, keep Presenters stateless, and destroy Presenters
-when their corresponding Views are destroyed. 3) 
-MVVM-specific Android Architecture Guidelines: 
-Another recurrent theme identified in the practices regards the
-MVVM pattern. In total, 24 practices are collected and synthesized in the following 10 MVP-specific guidelines.</p>
+when their corresponding Views are destroyed.</p>
 
 <h3>Example</h3>
 <p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">MVP login Application</a>.</p>
+
+<p>MVP event diagram:</p>
+<figure>
+  <img src="/assets/MVPLogin_injection.png" alt="Login Injection" width="600" />
+</figure>
 
 <p>After the login is successful, the AuthComponent gets added to the AppComponent. 
 With the <b>plusAuthComponent()</b> method.</p>
@@ -178,6 +182,14 @@ This is injected when the ViewUserActivity is created.</p>
 When this view is removed the presenter is removed as well.</p>
 
 <script src="https://gist.github.com/Geertdepont/bb5770a60eff27f2da993c3f46a140d0.js"></script>
+
+<p>When the user logs out, the AuthComponent is removed with the corresponding presenter and view. 
+The Presenter only has a reference to the view and not directly to the Activity. 
+Dagger injects the Presenter in to the LoginActivity. Dagger also injects the LoginView in the Presenter.</p>
+
+<p>Once the Activity is destroyed and eligible for garbage collection, 
+so is the component and it’s dependencies, so memory leaks are avoided.
+Dagger performs the maintainability of Presenters.</p>
 
 <p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">Github page</a> to view the complete repository.</p>
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Each architectural layer should possess its own data model - Bachelor Thesis site</title>
+  <title>What is MVP? - Bachelor Thesis site</title>
 
   <link rel="shortcut icon" href="/styles/images/favicon.png">
   <link rel="icon" href="/styles/images/favicon.png">
@@ -13,10 +13,10 @@
   <link rel="stylesheet" href="/styles/css/index.css">
   <link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/styles/css/syntax.css">
-  <link rel="canonical" href="/clean/clean-41/">
+  <link rel="canonical" href="/mvp/mvp-introduction/">
   <link rel="alternate" type="application/rss+xml" title="Bachelor Thesis site" href="/feed.xml">
   
-  <meta name="keywords" content="Each architectural layer should possess its own data model, Bachelor Thesis site, ">
+  <meta name="keywords" content="What is MVP?, Bachelor Thesis site, ">
   <meta name="description" content="">
 
   <script src="/styles/js/jquery.min.js"></script>
@@ -76,7 +76,7 @@
 <div class="banner">
   <div class="container">
   	
-    	<a href="/#category_Clean">Clean</a>	/
+    	<a href="/#category_MVP">MVP</a>	/
     
   </div>
 </div>
@@ -88,22 +88,38 @@
     <div class="col-md-3">
       <div class="sidebar hidden-print" role="complementary">
         <div id="navigation">
-  <h1>Clean</h1>
+  <h1>MVP</h1>
   <ul class="nav sidenav">
   </ul>
   <div style="height: 200px;width: 200px;">
     <ul class="nav sidenav">
       
         
-      <li><a href="/clean/clean-38/"><b>Guideline 38:</b> Decoupled business logic</a></li>
+      <li><a href="/mvp/mvp-introduction/"><b>Guideline Introduction:</b> What is MVP?</a></li>
         
-      <li><a href="/clean/clean-39/"><b>Guideline 39:</b> The outer architectural layer</a></li>
+      <li><a href="/mvp/mvp-16/"><b>Guideline 16:</b> Provide views with data</a></li>
         
-      <li><a href="/clean/clean-40/"><b>Guideline 40:</b> Framework and devices layer</a></li>
+      <li><a href="/mvp/mvp-17/"><b>Guideline 17:</b> Presenters should be Android- and framework-independent.</a></li>
         
-      <li><a href="/clean/clean-41/"><b>Guideline 41:</b> Each architectural layer should possess its own data model</a></li>
+      <li><a href="/mvp/mvp-18/"><b>Guideline 18:</b> Data provided by Models via app-scoped dedicated components.</a></li>
         
-      <li><a href="/clean/clean-42/"><b>Guideline 42:</b> The UI thread </a></li>
+      <li><a href="/mvp/mvp-19/"><b>Guideline 19:</b> Clearly define contracts between Views and Presenters.</a></li>
+        
+      <li><a href="/mvp/mvp-20/"><b>Guideline 20:</b> Lifecycle of Presenters</a></li>
+        
+      <li><a href="/mvp/mvp-21/"><b>Guideline 21:</b> Avoid too many responsibilities in the Presenters</a></li>
+        
+      <li><a href="/mvp/mvp-22/"><b>Guideline 22:</b> Make Presenters dependent on Views</a></li>
+        
+      <li><a href="/mvp/mvp-23/"><b>Guideline 23:</b> Views are passive</a></li>
+        
+      <li><a href="/mvp/mvp-24/"><b>Guideline 24:</b> Keep business logic out of activities and views.</a></li>
+        
+      <li><a href="/mvp/mvp-25/"><b>Guideline 25:</b> Inject dependencies to Presenters into the Views</a></li>
+        
+      <li><a href="/mvp/mvp-26/"><b>Guideline 26:</b> Do not let presenters communicate with each other.</a></li>
+        
+      <li><a href="/mvp/mvp-27/"><b>Guideline 27:</b> Retain fragments for avoiding memory leaks</a></li>
         
       
     </ul>
@@ -117,7 +133,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
             <header class="post-header">
-              <h1 class="post-title">Each architectural layer should possess its own data model</h1>
+              <h1 class="post-title">What is MVP?</h1>
               <!--
                 <p class="post-meta">May 21, 2019</p>
               -->
@@ -125,29 +141,28 @@
               <br />
             </header>
             <article class="post-content">
-              <h3>Why?</h3>
-<p>By implementing a data model at every
-layer, a high degree of decoupling between layers can be
-achieved. Specifically, by following this guideline, the outer
-layers of apps can be implemented without any explicit knowledge of the implementation details of the inner layers. This
-means that the origin of the data becomes transparent to the
-client and hence, in a repository pattern fashion, data sources
-can be added, removed, or changed without much effort.</p>
+              <h3>The MVP architecture</h3>
+<p>The MVP architecture consists of three components:</p>
+<ul>
+<li><b>Model</b> represents the datasource. This layer is accessed to update/store and retrieve the data.</li>
+<li><b>View</b> usually implemented by an activity, has a one-to-one relationship with the Presenter</li>
+<li><b>Presenter</b> decides which methods from the view to call, and what will be displayed in the view. </li>
+</ul>
+
+<h3>Difference MVVM and MVP</h3>
+<p>In MVVM the ViewModel exposes it’s methods and variables for the View to use it.
+In MVP the Presenter has a one-to-one relationship with the View, and decides what the view should do.</p>
 
 <h3>Example</h3>
-<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">MVP login Application</a>.</p>
+<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">MVP example</a>.
+As you can see, whenever a button is clicked, the Presenter decides what happens on the View.
+The presenter sets the progressbar on the view, and removes it.</p>
 
 <figure>
-  <img src="/assets/MVPLogin_depicted.png" alt="Login depicted" width="600" />
+  <img src="/assets/MVPLogin_event_diagram.png" alt="Login event diagram" width="600" />
 </figure>
 
-<p>Each layer works with its own model.
-The View layer works with the Presenter.
-The Presenter works with the Model.
-If we change the way we store the data from the model, the View would not need to know.
-Since the View receives the same data.</p>
-
-<p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">Github page</a> to view the complete repository.</p>
+<p>Checkout the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">github page</a> to view the full repository.</p>
 
 
             </article>

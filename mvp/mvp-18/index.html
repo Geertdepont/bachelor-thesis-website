@@ -95,6 +95,8 @@
     <ul class="nav sidenav">
       
         
+      <li><a href="/mvp/mvp-introduction/"><b>Guideline Introduction:</b> What is MVP?</a></li>
+        
       <li><a href="/mvp/mvp-16/"><b>Guideline 16:</b> Provide views with data</a></li>
         
       <li><a href="/mvp/mvp-17/"><b>Guideline 17:</b> Presenters should be Android- and framework-independent.</a></li>
@@ -111,11 +113,11 @@
         
       <li><a href="/mvp/mvp-23/"><b>Guideline 23:</b> Views are passive</a></li>
         
-      <li><a href="/mvp/mvp-24/"><b>Guideline 28:</b> Keep business logic out of activities and views.</a></li>
+      <li><a href="/mvp/mvp-24/"><b>Guideline 24:</b> Keep business logic out of activities and views.</a></li>
         
-      <li><a href="/mvp/mvp-25/"><b>Guideline 26:</b> Inject dependencies to Presenters into the Views</a></li>
+      <li><a href="/mvp/mvp-25/"><b>Guideline 25:</b> Inject dependencies to Presenters into the Views</a></li>
         
-      <li><a href="/mvp/mvp-26/"><b>Guideline 27:</b> Do not let presenters communicate with each other.</a></li>
+      <li><a href="/mvp/mvp-26/"><b>Guideline 26:</b> Do not let presenters communicate with each other.</a></li>
         
       <li><a href="/mvp/mvp-27/"><b>Guideline 27:</b> Retain fragments for avoiding memory leaks</a></li>
         
@@ -186,7 +188,9 @@ It checks if the cache is still valid. That is if the data was recently updated 
 
 <script src="https://gist.github.com/Geertdepont/6ecccdffb113b1b2e581775384f4bc6c.js"></script>
 
-<p>This results in a faster response.</p>
+<p>This results in a faster response. If this data was stored in the MainActivity and
+this activity would be destroyed, the data would be lost. 
+To retrieve the data again a new request would have to be performed, which results in a bad user experience.</p>
 
 <p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication">Github page</a> to view the complete repository.</p>
 

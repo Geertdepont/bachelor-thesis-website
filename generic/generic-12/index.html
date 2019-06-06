@@ -154,7 +154,8 @@ If we want to add a local database to improve the user’s experience, the compo
 <h3>Example</h3>
 <p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication">application</a> which retrieves employees from this url: http://dummy.restapiexample.com/api/v1/</p>
 
-<p>Retrieve data from the service and save in cache.</p>
+<p>We retrieve the data from the service and save it in the cache. 
+Whenever a user requests the employee data within 5 seconds, the data is retrieved from the Repository.</p>
 <figure>
   <img src="/assets/BossApplication_lifecycle.png" alt="Rxjava packages" width="600" />
 </figure>
@@ -163,7 +164,10 @@ If we want to add a local database to improve the user’s experience, the compo
 
 <script src="https://gist.github.com/Geertdepont/6ecccdffb113b1b2e581775384f4bc6c.js"></script>
 
-<p>If we want, we can add a database to our repository. And return the employees from our database, and the mainPresenter would not know the difference.</p>
+<p>Even though we have multiple sources of data, for the Presenter there only exists one source of data which is
+the <b>EmployeeRepository</b>.</p>
+
+<p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication">Github page</a> to view the complete repository.</p>
 
 
             </article>

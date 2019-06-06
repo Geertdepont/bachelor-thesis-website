@@ -95,6 +95,8 @@
     <ul class="nav sidenav">
       
         
+      <li><a href="/mvp/mvp-introduction/"><b>Guideline Introduction:</b> What is MVP?</a></li>
+        
       <li><a href="/mvp/mvp-16/"><b>Guideline 16:</b> Provide views with data</a></li>
         
       <li><a href="/mvp/mvp-17/"><b>Guideline 17:</b> Presenters should be Android- and framework-independent.</a></li>
@@ -111,11 +113,11 @@
         
       <li><a href="/mvp/mvp-23/"><b>Guideline 23:</b> Views are passive</a></li>
         
-      <li><a href="/mvp/mvp-24/"><b>Guideline 28:</b> Keep business logic out of activities and views.</a></li>
+      <li><a href="/mvp/mvp-24/"><b>Guideline 24:</b> Keep business logic out of activities and views.</a></li>
         
-      <li><a href="/mvp/mvp-25/"><b>Guideline 26:</b> Inject dependencies to Presenters into the Views</a></li>
+      <li><a href="/mvp/mvp-25/"><b>Guideline 25:</b> Inject dependencies to Presenters into the Views</a></li>
         
-      <li><a href="/mvp/mvp-26/"><b>Guideline 27:</b> Do not let presenters communicate with each other.</a></li>
+      <li><a href="/mvp/mvp-26/"><b>Guideline 26:</b> Do not let presenters communicate with each other.</a></li>
         
       <li><a href="/mvp/mvp-27/"><b>Guideline 27:</b> Retain fragments for avoiding memory leaks</a></li>
         
@@ -176,6 +178,23 @@ parameter. If not, it will show the error message.</Book></p>
 <figure>
   <img src="/assets/BookApplication_eventDiagram.png" alt="Login Injection" width="600" />
 </figure>
+
+<p>The Contract describes the interaction between the view and the presenter. 
+The Presenter has to perform two methods:</p>
+<ul>
+<li><b>loadBookList</b> to get the books for the view</li>
+<li><b>dropView</b> to release its connection with the view</li>
+</ul>
+
+<p>The View has to perform four methods:</p>
+<ul>
+<li><b>showProgress</b> to add progressbar, to show that the books are being retrieved.</li>
+<li><b>hideProgress</b> to remove the progressbar, if successful or unsuccesful. </li>
+<li><b>showBookList</b> to show the retrieved books</li>
+<li><b>showLoadingError</b> to show if the retrieval was unsuccesful.</li>
+</ul>
+
+<p>I hope that creating this contract makes the interaction more understandable.</p>
 
 <p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/BookApplication">Github page</a> to view the complete repository.</p>
 

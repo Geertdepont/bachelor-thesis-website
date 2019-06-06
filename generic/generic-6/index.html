@@ -146,10 +146,9 @@
             </header>
             <article class="post-content">
               <h3>Why?</h3>
-<p>When organizing your packages and files by layer or by feature, it becomes easier for 
+<p>By organizing your packages and files  it becomes easier for 
 programmers to find the code which performs a certain aspect of your application.
-By layer or by feature both have their advantages. However when packaging by layer, 
-whenever a feature has to be changed, multiple files in different packages need to be changed. 
+Whenever a feature has to be changed in layer-organized file system, multiple files in different packages need to be changed. 
 As however in packaging by feature this is less the case.</p>
 
 <h3>Example</h3>
@@ -167,7 +166,8 @@ As however in packaging by feature this is less the case.</p>
 
 <p>In the service package everything with data preparation is taken care of.
 E.g. fetching data from the server. Putting the fetched data into mutableLiveData.
-The ViewModel exposes methods which help maintain the view.</p>
+The ViewModel exposes methods which help maintain the View. 
+And the View handles the UI events and maps them to them to the ViewModel.</p>
 
 <p>Our <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">MVP</a> also somehow needs to reflect it’s architecture.</p>
 
@@ -181,6 +181,10 @@ The ViewModel exposes methods which help maintain the view.</p>
 <li>Model</li>
 <li>Presenter</li>
 </ul>
+
+<p>In the model all the data management is taken care of. 
+The Presenter queries the data from the model, and returns it to the View.
+And the View presents the data to the user in a way the Presenter decided.</p>
 
 <p>Check out both the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub">MVVM example</a> and the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">MVP example</a> on these links.</p>
 

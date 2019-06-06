@@ -95,6 +95,8 @@
     <ul class="nav sidenav">
       
         
+      <li><a href="/mvp/mvp-introduction/"><b>Guideline Introduction:</b> What is MVP?</a></li>
+        
       <li><a href="/mvp/mvp-16/"><b>Guideline 16:</b> Provide views with data</a></li>
         
       <li><a href="/mvp/mvp-17/"><b>Guideline 17:</b> Presenters should be Android- and framework-independent.</a></li>
@@ -111,11 +113,11 @@
         
       <li><a href="/mvp/mvp-23/"><b>Guideline 23:</b> Views are passive</a></li>
         
-      <li><a href="/mvp/mvp-24/"><b>Guideline 28:</b> Keep business logic out of activities and views.</a></li>
+      <li><a href="/mvp/mvp-24/"><b>Guideline 24:</b> Keep business logic out of activities and views.</a></li>
         
-      <li><a href="/mvp/mvp-25/"><b>Guideline 26:</b> Inject dependencies to Presenters into the Views</a></li>
+      <li><a href="/mvp/mvp-25/"><b>Guideline 25:</b> Inject dependencies to Presenters into the Views</a></li>
         
-      <li><a href="/mvp/mvp-26/"><b>Guideline 27:</b> Do not let presenters communicate with each other.</a></li>
+      <li><a href="/mvp/mvp-26/"><b>Guideline 26:</b> Do not let presenters communicate with each other.</a></li>
         
       <li><a href="/mvp/mvp-27/"><b>Guideline 27:</b> Retain fragments for avoiding memory leaks</a></li>
         
@@ -150,9 +152,20 @@ This also prevents the Presenter to access methods which should not be accessibl
 
 <p>As described above the presenter is dependent on views and not the activity.</p>
 
-<script src="https://gist.github.com/Geertdepont/fc1bed409951ee9254f7aeeb7d6f4de6.js"></script>
+<script src="https://gist.github.com/Geertdepont/7e57da2825201c7246ad8599e9fb9abd.js"></script>
 
-<p>The Presenter has only a reference to a view.</p>
+<p>The GreetPresenter has only a reference to a GreetView.
+The GreetActivity implements the GreetView.</p>
+
+<script src="https://gist.github.com/Geertdepont/a75d3679705df490bdae794dfcc1bbee.js"></script>
+
+<p>The GreetPresenter makes changes to the Activity via the view.
+To show the message, <b>mGreetView.showMessage(mCredentials.getPersonalizedGreeting());</b> is being called.</p>
+
+<p>Which in the mainActivity is described as:
+<script src="https://gist.github.com/Geertdepont/da05a619efc529decd2db3c7c0298d3f.js"></script></p>
+
+<p>The message has been added to the TextView <b>personalGreetingTextView</b>.</p>
 
 <p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin">Github page</a> to view the complete repository.</p>
 
