@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Networking or data access functionalities should be performed exclusively by Models - Bachelor Thesis site</title>
+  <title>Networking or data access functionalities should be performed exclusively by Models - Guidelines for Architecting Android Apps</title>
 
   <link rel="shortcut icon" href="/styles/images/favicon.png">
   <link rel="icon" href="/styles/images/favicon.png">
@@ -14,9 +14,9 @@
   <link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="/styles/css/syntax.css">
   <link rel="canonical" href="/mvvm/mvvm-37/">
-  <link rel="alternate" type="application/rss+xml" title="Bachelor Thesis site" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Guidelines for Architecting Android Apps" href="/feed.xml">
   
-  <meta name="keywords" content="Networking or data access functionalities should be performed exclusively by Models, Bachelor Thesis site, ">
+  <meta name="keywords" content="Networking or data access functionalities should be performed exclusively by Models, Guidelines for Architecting Android Apps, ">
   <meta name="description" content="">
 
   <script src="/styles/js/jquery.min.js"></script>
@@ -48,103 +48,85 @@
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="https://github.com/Geertdepont/bachelor_thesis">Github page</a>
-        </li>
-        <li>
-          <a href="https://robertoverdecchia.github.io/papers/ICSA_2019.pdf">Referenced article</a>
+          <a href="/credits/credits">Credits</a>
         </li>
       </ul>
-      <!--<ul class="nav navbar-nav navbar-right">-->
-        <!--<li class="dropdown">-->
-          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Files<b class="caret"></b></a>-->
-          <!--<ul class="dropdown-menu">-->
-            <!--<li><a rel="nofollow" target="_blank" href="https://github.com/Geertdepont/bachelor_thesis">Github</a></li>-->
-          <!--</ul>-->
-        <!--</li>-->
-      <!--</ul>-->
     </nav>
   </div>
 </header>
-    <div class="docs-header" id="content">
-  <div class="container">
-  	
-    
-  </div>
-</div>
+    <!--<div class="docs-header" id="content">-->
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  	<!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
     
       
 <div class="banner">
   <div class="container">
   	
-    	<a href="/#category_MVVM">MVVM</a>	/
+    	<a href="/MVVM/">MVVM</a>	/
     
   </div>
 </div>
 
     
 
-    <div class="container docs-container">
+    
+<div class="container docs-container">
   <div class="row">
     <div class="col-md-3">
-      <div class="sidebar hidden-print" role="complementary">
+      <div class="sidebarpost hidden-print" role="complementary">
         <div id="navigation">
   <h1>MVVM</h1>
-  <ul class="nav sidenav">
-  </ul>
   <div style="height: 200px;width: 200px;">
     <ul class="nav sidenav">
       
-        
-      <li><a href="/mvvm/mvvm-introduction/"><b>Guideline Introduction:</b> What is MVVM?</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-28/"><b>Guideline 29:</b> Models, Views, and ViewModels should exclusively expose their state</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-29/"><b>Guideline 30:</b> The app should possess a single source of truth of data.</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-30/"><b>Guideline 30:</b> Models should be evolvable/testable</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-31/"><b>Guideline 31:</b> ViewModels should not refer to View-specific components.</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-32/"><b>Guideline 32:</b> Views should always know about changes after ViewModels</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-33/"><b>Guideline 33:</b> Adopt one Model for each feature of the app.</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-34/"><b>Guideline 34:</b> Keep ViewModels as simple as possible.</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-35/"><b>Guideline 35:</b> The state of the app should be defined in the Models only.</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-36/"><b>Guideline 36:</b> The data produced by the Models should be reliable and of high quality.</a></li>
-        
+      
       <li><a href="/mvvm/mvvm-37/"><b>Guideline 37:</b> Networking or data access functionalities should be performed by Models.</a></li>
-        
+      
       
     </ul>
   </div>
 </div>
 
- 
+
       </div>
     </div>
     <div class="col-md-9" role="main">
       <div class="panel docs-content">
         <div class="wrapper">
-            <header class="post-header">
-              <h1 class="post-title">Networking or data access functionalities should be performed exclusively by Models</h1>
-              <!--
-                <p class="post-meta">May 21, 2019</p>
-              -->
-              <!--<div class="meta">Posted on <span class="postdate">May 21, 2019</span> By <a target="_blank" href="geertdepont.github.io">Geert de Pont</a></div>-->
-              <br />
-            </header>
-            <article class="post-content">
-              <h3>Why?</h3>
+          <header class="post-header">
+            <h1 class="post-title">Networking or data access functionalities should be performed exclusively by Models</h1>
+            <br />
+          </header>
+          <article class="post-content">
+            <h3>Why?</h3>
 <p>Performing data functionalities by models, results into smaller ViewModels/Views. 
 It also makes testing the whole architecture easier. 
 Since each component can be tested separately. 
 Instead of asserting that a View needs to behave after a certain retrieval from the model, the model now can be tested independently.</p>
 
 <h3>Example</h3>
-<p>We created a simple [MVVM example][architecture-example].</p>
+<p>We created a simple [MVVM example][architecture-example]{:target=”_blank”}.</p>
 
 <p>We use for this example Rxjava in combination with retrofit.
 	Sometimes it is necessary to have nested callbacks.
@@ -177,22 +159,34 @@ It then sorts all the results and puts them in a List.</p>
 
 <p>The repository is the only module which performs <b> Networking </b> functionalities.</p>
 
-<p>Check this <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub">page</a> to view the complete repository.</p>
+<p>Check this <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub" target="_blank">page</a> to view the complete repository.</p>
+
+<p><a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">Go to the github page</button></a></p>
 
 
-            </article>
+          </article>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+
+
     
     <footer class="footer" role="contentinfo">
 	<div class="container">
-		<p class="copyright">Copyright &copy; 2014-2019 <a href=""><code>Geert de Pont</code></a>.</p>
+		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
+		<img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;">
+		<img src="/assets/gssi.jpg" alt="GSSI" width="220px;">
 	</div>
 </footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/navigation.js"></script>
+<script src="/styles/js/application.js"></script>
 
   </body>
 </html>
