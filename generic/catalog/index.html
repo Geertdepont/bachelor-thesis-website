@@ -53,7 +53,7 @@
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/credits/credits">Credits</a>
+          <a href="/credits/">Credits</a>
         </li>
       </ul>
     </nav>
@@ -118,7 +118,416 @@
           <article class="post-content">
             <h1 >Catalog of Generic guidelines</h1>
 
+<div class="wrapper">
+  <div class="home">
+    
+    
 
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    <div class="row">
+      
+      <a href="/generic/generic-1/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Decouple components
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                While not strictly necessary, utilizing a dependency injection framework can drastically simplify the management of dependencies between Android architectural components. This supports a clean decoupling of architectural components and avoids unnecessary boilerplate for connecting them. Doing so not only improves the maintainability of the app, but also improves its testability by providing the possibility to inject mock implementations. The Dagger framework is commonly recommended to inject dependencies and solve problems afflicting reflection-based solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-2/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Design independent components
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                 As also remarked by two interviewees, a recurrent problem arises when common functionalities are not provided in base classes. This often leads to duplicated code, reducing the maintainability and testability of the app. Ideally, components should be independent from each other and their business logic should be clear and explicitly separated. By quoting one of the data points “your architecture should scream the purpose of the app”. Decoupled components make it easier to focus on app functionalities and their issues, without dealing with bloatware. Additionally, this enables a higher testability of the core logic of the app by making components unit-testable (ideally without requiring an emulator). Finally, by decoupling the business logic from frameworks, more emphasis is put on the business logic, making an app more testable, maintainable, and of low technical debt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-3/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Counter the tendency of Activities to grow too big
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Android Activities should ideally contain exclusively logic handling the user interface (UI) and operating system interactions. Nevertheless, a common architectural issue consists of delegating too many functionalities and responsibilities to a single Activity. This leads to Activities slowly becoming god-classes. As the Android framework does not support the reuse of methods implemented in activities, code tends to be directly copied into other ones, increasing code duplication and impacting negatively the app’s maintainability. Additionally, testing might become a challenging task, as complex business logic could reside in Activities, which by themselves result arduous to unit test. Finally, as activities are kept in memory at runtime, “godactivities” can lead to the deterioration of apps’ performance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+    
+    <div class="row">
+      
+      <a href="/generic/generic-4/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Separation of concerns in your architecture
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Architectural components of an app should have a single, well defined, responsibility. As a component grows bigger, it should be split up. By following the single responsibility principle, the app architecture naturally supports the structure of developer teams and development stages. Additionally, monoliths are detected in the early stages and modules become testable in isolation. Finally, if the app is built using Gradle, modularization can improve the performance of the build process and ease the development of Instant apps.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-5/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Select architectual pattern
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Picking the right architectural pattern (e.g., MVP or MVVM) for the context and business goals of the app is a crucial decision. By adhering to an architectural patter selected a priori, separating responsibilities into components becomes a more straightforward process, and the growth of architectural technical debt is hindered. It is important to note that, when a certain level of adaptability/maintainability is not required, the selection of an ill-suited architectural pattern might lead to over-engineering. Choosing the architectural pattern to adopt is hence a nontrivial decision which should be taken by considering the context of apps, and their business/organizational goals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-6/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Organize packages
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                By organizing your packages and files  it becomes easier for programmers to find the code which performs a certain aspect of your application. Whenever a feature has to be changed in layer-organized file system, multiple files in different packages need to be changed. As however in packaging by feature this is less the case.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+    
+    <div class="row">
+      
+      <a href="/generic/generic-7/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Take advantage of libraries
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Taking full advantage of libraries does not only save time, but could also be an improvement of your own implementation. Since multiple users could have been working on this implementation and many hands make light work. However do check the ratings of the library before using it. Or dive into the code of the library. This way you can see that you are working with high quality and bug free code.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-8/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Cache data
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Using a cache to store data, enhances the user’s experience. Activities are destroyed constantly. Retrieving data from the server whenever an activity is destroyed, is a waste of mobile data and a bad user experience. A synchronization of a local database and the webservice can solve this problem. Whenever the local database is empty, or the data is not valid, retrieve data from the web server.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-9/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Use interfaces
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Using interfaces for linking modules, is a great way for module communication. This way modules can’t access methods that are not declared in the interface. And helps define a clear overview of what each module does. Using interfaces for linking modules, is a great way for module communication. This way modules can’t access methods that are not declared in the interface. And helps define a clear overview of what each module does. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+    
+    <div class="row">
+      
+      <a href="/generic/generic-10/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Avoid nested callbacks
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Using too many callbacks leads to unreadable code. These callback hells often arise when multiple server requests need to be performed for one activity. For example, showing the details of users. First you need to know which users exist, and with each username you can request the details. The RxJava library can simplify our code. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-11/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Coding standards
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Coding standards are guidelines that all developers follow in a project follow to improve collaboration. When non-logical variable or function names are used, it becomes harder for others to understand the code. Which results in time loss. There also exists coding standard files which can be linked to your AndroidStudio project. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-12/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Use a dedicated module
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Using one single source of data, allows for each component to only depend on the one below it. If we want to add a local database to improve the user’s experience, the component above does not need to know a local database has been added. Because the data supplied to the above layer remains the same. If however a repository was not used each component would have to maintain its own local database. Which could lead to inconsistent data, and repeated code.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+    
+    <div class="row">
+      
+      <a href="/generic/generic-13/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Lifecycle of android components
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Each android component has a lifecycle. Without taking them in consideration, your app might crash, or unexpected activities might occur. Also since activities are constantly being destroyed, referencing them could lead to memory leaks. Using lifecycle aware components reduces much of this complexity. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-14/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Designing background tasks
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Each app runs on the main thread. Performing long computation tasks on the main thread could slow down the app. And lead to an unpleasant user experience. So whenever we perform a task like a network request, we perform then as a background task. It is important to handle your background tasks correctly. For example we do not want the user to wait forever when a network error occurred.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/generic/generic-15/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Permissions
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Android apps must require permissions before accessing specific data or certain system activities, like accessing the Internet. All these permission need to be specified in the  AndroidManifest.xml. And the certain system feature can then only be used if the user allows it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+
+    
+    
+  </div>
+</div>
           </article>
         </div>
       </div>
@@ -130,8 +539,8 @@
     <footer class="footer" role="contentinfo">
 	<div class="container">
 		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
-		<img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;">
-		<img src="/assets/gssi.jpg" alt="GSSI" width="220px;">
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
 	</div>
 </footer>
 

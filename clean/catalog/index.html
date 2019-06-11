@@ -53,7 +53,7 @@
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/credits/credits">Credits</a>
+          <a href="/credits/">Credits</a>
         </li>
       </ul>
     </nav>
@@ -118,7 +118,161 @@
           <article class="post-content">
             <h1 >Catalog of Clean guidelines</h1>
 
+<div class="wrapper">
+  <div class="home">
+    
+    
 
+    
+    
+    
+    
+    <div class="row">
+      
+      <a href="/clean/clean-38/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Decoupled business logic
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                By adhering to the clean architecture principles, the innermost layers of an app (i.e., where all the business logic of the app resides) should be “frontend agnostic”. This means that this layers are completely decoupled from the Android framework, and could be ideally implemented as pure Java packages. Additionally, as this layers represent the core of Android apps, they should be developed before all other layers. Changes to the innermost layers should be driven exclusively by business decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/clean/clean-39/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                The outer architectural layer
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                In order to ensure a clear separation of concerns among the clean architecture layers of an app, it is paramount that everything related to Android UI is grouped in a module residing in the outer architectural layer. As the other architectural layers of the app should be “frontend agnostic” (see guideline CLEAN-1), different patterns (e.g., MVP or MVVM) can be implemented in this layer. Activities and Fragments should not handle any other logic than the one necessary to render the UI. This allows a clear separation of concern among the architectural layers of an app, enhancing the understandability, modifiable and testability of its components.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/clean/clean-40/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Framework and devices layer
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                In accordance to the clean architecture principles, all components related to the framework should be grouped in the outer architectural layer. This includes all components which contain Android specific implementations, which should not be present in the business logic layers. Examples include, in addition to the user interface model, the data persistence module (e.g., LiveData, DAOs, ORMs, Shared Preferences, Retrofit, etc.) and eventual dependency injection frameworks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+    
+    <div class="row">
+      
+      <a href="/clean/clean-41/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Each architectural layer should possess its own data model
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                By implementing a data model at every layer, a high degree of decoupling between layers can be achieved. Specifically, by following this guideline, the outer layers of apps can be implemented without any explicit knowledge of the implementation details of the inner layers. This means that the origin of the data becomes transparent to the client and hence, in a repository pattern fashion, data sources can be added, removed, or changed without much effort.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/clean/clean-42/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                The UI thread 
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                In accordance to guidelines CLEAN-1 and CLEAN-2, presenters residing in the outer layers of apps modeled through clean architecture principles should be kept lightweight. In fact, Presenters should be composed with interactor components, i.e., use cases residing in the business logic layers, which are responsible for executing tasks outside the main UI thread of the app. Once the task are finished, the Views are updated through a callback with the processed data. Besides callback-based communication among components, other techniques used in order to keep the UI thread lightweight rely on the inversion of control principle and intent-based communication.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+  </div>
+</div>
           </article>
         </div>
       </div>
@@ -130,8 +284,8 @@
     <footer class="footer" role="contentinfo">
 	<div class="container">
 		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
-		<img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;">
-		<img src="/assets/gssi.jpg" alt="GSSI" width="220px;">
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
 	</div>
 </footer>
 

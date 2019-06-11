@@ -53,7 +53,7 @@
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/credits/credits">Credits</a>
+          <a href="/credits/">Credits</a>
         </li>
       </ul>
     </nav>
@@ -116,9 +116,341 @@
             <br />
           </header>
           <article class="post-content">
-            <h1 >Catalog of MVP architecture</h1>
+            <h1 >Catalog of MVP guidelines</h1>
 
+<div class="wrapper">
+  <div class="home">
+    
+    
 
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+    <div class="row">
+      
+      <a href="/mvp/mvp-16/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Provide views with data
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                The view layer of Android apps tends to become bloated with responsibilities, and hence becomes harder to maintain. In order to alleviate such problem, Activities and Fragments can be provided with preprocessed data ready to be displayed. This can be achieved by delegating data processing tasks to one or more dedicated components. In such manner, Activities and Fragments are relieved from the task of transforming and filtering domain-specific data, potentially improving the testability and usability of the app.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/mvp/mvp-17/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Presenters should be Android- and framework-independent.
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                To abstract Presenter components from the implementation details, Presenters should ideally avoid dependencies to the Android framework. This also entails not creating a lifecycle in Presenters, as it may hinder their maintainability and evolvability. In order to access app resources and preferences, View and Model components can be used instead, respectively. Additionally, by developing Presenters as only dependent on Java, the testability of Presenters drastically improves, as now non-instrumented unit-test cases can be written for such components.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/mvp/mvp-18/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Data provided by Models via app-scoped dedicated components.
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                When developing an Android app, a common issue which might emerge is related to restoring the state of Views. This issue can be solved by adapting slightly the architecture of apps. Specifically a data manager component (e.g., a data store or Jetpack Repository) can be introduced. This component is responsible for data related tasks such as fetching data from the network, caching results or returning already cached data. By scoping such component at the app level and not at the one of single Activities, issues relative to restoring View states, e.g., in the occurrence of a screen orientation change, are solved through an architecturally maintainable solution.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+    
+    <div class="row">
+      
+      <a href="/mvp/mvp-19/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Clearly define contracts between Views and Presenters.
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Before starting to develop a new app feature, a good architectural practice consists in writing a contract documenting the communication between the View and the Presenter. The contract should document for each event in the View which is the corresponding action in the Presenter. By implementing contract interface classes, the source code of apps become more understandable, as the relation between the View and the Presenter is explicitly documented.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/mvp/mvp-20/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Lifecycle of Presenters
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                By having callbacks related to the Activity lifecycle in Presenters, Presenters become tightly coupled to Activities lifecycle. This can have a negative impact in terms of maintainability. From an architectural perspective, Presenters should not be responsible for data-related tasks. It is hence advised not to retain Presenters. An alternative solution would be to use a caching mechanism to retain data, keep Presenters stateless, and destroy Presenters when their corresponding Views are destroyed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/mvp/mvp-21/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Avoid too many responsibilities in the Presenters
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                When delegating the responsibilities from the View to the Presenter a common pitfall is that the Presenter has to perform too many activities. Don’t let the Presenter have a direct connection with the database. Use are Repository to return the data. Keep presenters as simple as possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+    
+    <div class="row">
+      
+      <a href="/mvp/mvp-22/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Make Presenters dependent on Views
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Not only does this abstract away from the Android framework. But also improves the testability of the Presenters. Make the Activities implement a view interface. This also prevents the Presenter to access methods which should not be accessible from the Activity. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/mvp/mvp-23/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Views are passive
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Views contain attributes which can be visible and non-visible. It is the Presenter’s task to change the state of the View. However, whenever an Activity is killed, it is not the task of the Presenter to check this and reconfigure this Activity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/mvp/mvp-24/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Keep business logic out of activities and views.
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Good presenters act as documentation of the business logic. Try to remove as much logic from the Views as possible. This results into clearer views and makes testing easier. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+    
+    <div class="row">
+      
+      <a href="/mvp/mvp-25/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Inject dependencies to Presenters into the Views
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Injecting presenters using Dagger reduces null checks and setPresenter() methods. Whenever an activity is used, Dagger couples the view with the Presenter. Which ultimately results into clearer code.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/mvp/mvp-26/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Do not let presenters communicate with each other.
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                There is no need for Presenters to communicate with each other. Whenever an event happens. The Presenter sends it to the model. From which the other Presenter then can retrieve the new data. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="/mvp/mvp-27/">
+        <div class="col-sm-4">
+          <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="background-color: #d4dde1;
+                              border: none;
+                              padding-top: 1px;
+                              border-bottom: 1px solid transparent;
+                              border-top-right-radius: 3px;
+                              border-top-left-radius: 3px;
+                              color: #444e5e;">
+              <h3 style="font-size: 12px; text-transform: 1px;text-align: center;">
+                Retain fragments for avoiding memory leaks
+              </h3>
+            </div>
+            <div style="padding: 15px; color: #444e5e;">
+              <p>
+                Fragments are destroyed and recreated with their parent Activity. The setRetainInstance in a fragment, allows us to skip this cycle. The fragment is then retained. This is used to avoid memory leaks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      
+    </div>
+    
+
+    
+    
+    
+
+    
+    
+  </div>
+</div>
           </article>
         </div>
       </div>
@@ -130,8 +462,8 @@
     <footer class="footer" role="contentinfo">
 	<div class="container">
 		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
-		<img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;">
-		<img src="/assets/gssi.jpg" alt="GSSI" width="220px;">
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
 	</div>
 </footer>
 
