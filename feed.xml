@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="geertdepont.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="geertdepont.github.io/" rel="alternate" type="text/html" /><updated>2019-06-12T14:07:08+02:00</updated><id>geertdepont.github.io/feed.xml</id><title type="html">Guidelines for Architecting Android Apps</title><subtitle>42 guidelines for creating good Android applications. These guidelines are formed in the https://robertoverdecchia.github.io/papers/ICSA_2019.pdf paper.</subtitle><author><name>Geert de Pont</name></author><entry><title type="html">Decouple components and explicitly inject/manage the dependencies among them</title><link href="geertdepont.github.io/generic/generic-1/" rel="alternate" type="text/html" title="Decouple components and explicitly inject/manage the dependencies among them" /><published>2019-05-21T01:00:41+02:00</published><updated>2019-05-21T01:00:41+02:00</updated><id>geertdepont.github.io/generic/generic-1</id><content type="html" xml:base="geertdepont.github.io/generic/generic-1/">&lt;h3&gt;Why?&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="geertdepont.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="geertdepont.github.io/" rel="alternate" type="text/html" /><updated>2019-06-12T20:15:31+02:00</updated><id>geertdepont.github.io/feed.xml</id><title type="html">Guidelines for Architecting Android Apps</title><subtitle>42 guidelines for creating good Android applications. These guidelines are formed in the https://robertoverdecchia.github.io/papers/ICSA_2019.pdf paper.</subtitle><author><name>Geert de Pont</name></author><entry><title type="html">Decouple components and explicitly inject/manage the dependencies among them</title><link href="geertdepont.github.io/generic/generic-1/" rel="alternate" type="text/html" title="Decouple components and explicitly inject/manage the dependencies among them" /><published>2019-05-21T01:00:41+02:00</published><updated>2019-05-21T01:00:41+02:00</updated><id>geertdepont.github.io/generic/generic-1</id><content type="html" xml:base="geertdepont.github.io/generic/generic-1/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;While not strictly necessary, utilizing a dependency injection framework
 can drastically simplify the management of dependencies between Android architectural components. 
 This supports a clean decoupling of architectural components and avoids unnecessary boilerplate for connecting them.
@@ -72,7 +72,7 @@ And multiple null-checks have to be made before using that dependency..&lt;/p&gt
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;This guideline was subtracted from:&lt;/p&gt;
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
 
 &lt;table id=&quot;guidelinelinks&quot;&gt;
   &lt;tr&gt;
@@ -95,6 +95,100 @@ And multiple null-checks have to be made before using that dependency..&lt;/p&gt
     &lt;td&gt;Dagger2 is used to avoid detailcomplicated boilerplate code of connecting architecture elements one to another&lt;/td&gt;
     &lt;td&gt;&lt;a href=&quot;https://hackernoon.com/android-clean-architecture-with-kotlin-rxjava-and-dagger-2-6006be2d0c02&quot; target=&quot;_blank&quot;&gt;https://hackernoon.com/android-clean-architecture-with-kotlin-rxjava-and-dagger-2-6006be2d0c02&lt;/a&gt;&lt;/td&gt;
   &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;123&lt;/td&gt;
+      &lt;td&gt;By injecting mock implementations of respective dependencies to separated classes can make testing much easier.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://dev.to/wahibhaq/a-brief-summary-of-thoughts-on-clean-architecture-and-mvp-48h9&quot; target=&quot;_blank&quot;&gt;https://dev.to/wahibhaq/a-brief-summary-of-thoughts-on-clean-architecture-and-mvp-48h9&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;212&lt;/td&gt;
+      &lt;td&gt;Through dagger we can manage the scope of our instances created, which is something really cool and from my point of view, Any object or collaborator in your app should not know anything about instances creation and lifecycle and this should be managed by our dependency injection framework.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/&quot; target=&quot;_blank&quot;&gt;https://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;194&lt;/td&gt;
+      &lt;td&gt;Use Dagger as (i) components become reusable (since dependencies can be injected and configured externally), 
+      (ii) when injecting abstractions as collaborators, we can just change the implementation of any object without having to make a lot of changes in our codebase, 
+      (iii) Dependencies can be injected into a component: 
+      it is possible to inject mock implementations of these dependencies which makes testing easier.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot; target=&quot;_blank&quot;&gt;https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;213&lt;/td&gt;
+      &lt;td&gt;The @PerActivity is a custom scoping annotation to permit objects whose lifetime should conform to the life of the activity to be memorized in the correct component.
+          I really encourage to do this as a good practice, since we get these advantages:
+          The ability to inject objects where and activity is required to be constructed.
+          The use of singletons on a per-activity basis.
+          The global object graph is kept clear of things that can be used only in activities.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/&quot; target=&quot;_blank&quot;&gt;https://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;112&lt;/td&gt;
+      &lt;td&gt;My second tip is to have a core module which will have these main responsitilities:
+          &lt;ul&gt;
+          &lt;li&gt;Handle global dependency injection.&lt;/li&gt;
+          &lt;li&gt;Contain extension functions.&lt;/li&gt;
+          &lt;li&gt;Contain the main framework abstractions.&lt;/li&gt;
+          &lt;li&gt;Initiate in the main application common 3rd party libraries like Analytics, Crash Reporting&lt;/li&gt;
+          &lt;/ul&gt;
+      &lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://fernandocejas.com/2018/05/07/architecting-android-reloaded/&quot; target=&quot;_blank&quot;&gt;https://fernandocejas.com/2018/05/07/architecting-android-reloaded/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;103&lt;/td&gt;
+      &lt;td&gt;Having DI framework is not a must, you can live without it, but right setup of DI can really make your life easier. There are several libraries which offer ready solutions (e.g. Dagger, Roboguice, Toothpick). You can decide which one will fit best in your project, considering performance and usability. With dependency injection you don’t have to care so much about things like e.g. object creation, passing references, implementing singleton pattern.
+      &lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://medium.com/stepstone-tech/considering-architecture-for-android-app-f7f0fabf680a&quot; target=&quot;_blank&quot;&gt;https://medium.com/stepstone-tech/considering-architecture-for-android-app-f7f0fabf680a&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;104&lt;/td&gt;
+      &lt;td&gt; think it is a good practice to wrap libraries with a layer of abstraction, this way you can avoid dependencies from particular library implementation inside your business logic. Also if you decide to change a library to a different one, you won’t have to do refactoring in the entire project, just inside a single repository. It is not necessary to use this pattern for everything, only for libraries which you are not confident you will be using in the future.
+      &lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://medium.com/stepstone-tech/considering-architecture-for-android-app-f7f0fabf680a&quot; target=&quot;_blank&quot;&gt;https://medium.com/stepstone-tech/considering-architecture-for-android-app-f7f0fabf680a&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;86&lt;/td&gt;
+      &lt;td&gt;
+      The UserRepository class above needs an instance of Webservice to fetch the user's data. It could simply create the instance, but to do that, it also needs to know the dependencies of the Webservice class. Additionally, UserRepository is probably not the only class that needs a Webservice. This situation requires us to duplicate code, as each class that needs a reference to Webservice needs to know how to construct it and its dependencies. If each class creates a new WebService, our app could become very resource heavy.
+      &lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developer.android.com/jetpack/docs/guide&quot; target=&quot;_blank&quot;&gt;https://developer.android.com/jetpack/docs/guide&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;85&lt;/td&gt;
+        &lt;td&gt;. Note: If you're already using a library like RxJava or Agera, you can continue using them instead of LiveData. When you use libraries and approaches like these, however, make sure you handle your app's lifecycle properly. In particular, make sure to pause your data streams when the related LifecycleOwner is stopped and to destroy these streams when the related LifecycleOwner is destroyed. You can also add the android.arch.lifecycle:reactivestreams artifact to use LiveData with another reactive streams library, such as RxJava2.&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;https://developer.android.com/jetpack/docs/guide&quot; target=&quot;_blank&quot;&gt;https://developer.android.com/jetpack/docs/guide&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;153&lt;/td&gt;
+        &lt;td&gt; RxJava allows you to manage data via asynchronous streams and gives you many operators that you can apply to the stream in order to transform, filter or combine the data.&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&quot; target=&quot;_blank&quot;&gt;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;155&lt;/td&gt;
+        &lt;td&gt;RxJava Observables and operators remove the need for having nested callbacks.&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&quot; target=&quot;_blank&quot;&gt;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;218&lt;/td&gt;
+        &lt;td&gt;RxJava Observables and operators remove the need for having nested callbacks.&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&quot; target=&quot;_blank&quot;&gt;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;252&lt;/td&gt;
+        &lt;td&gt;[On clean ark] Although it’s a bit hidden, the same data flow inversion principle still holds, because without RxJava presenters were implementing the callback, and with RxJava subscribers are also contained in the outer layer – somewhere in the presenter.&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&quot; target=&quot;_blank&quot;&gt;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;191&lt;/td&gt;
+        &lt;td&gt;Benefits we get out of this RxJava: Decoupling between Observables and Subscribers: makes maintainability and testing easier.&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot; target=&quot;_blank&quot;&gt;https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+        
+    
+    
+    
+    
+    
 &lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? While not strictly necessary, utilizing a dependency injection framework can drastically simplify the management of dependencies between Android architectural components. This supports a clean decoupling of architectural components and avoids unnecessary boilerplate for connecting them. Doing so not only improves the maintainability of the app, but also improves its testability by providing the possibility to inject mock implementations. The Dagger framework is commonly recommended to inject dependencies and solve problems afflicting reflection-based solutions.</summary></entry><entry><title type="html">Design components to be as independent as possible, build them around the features of the app and make them Android-independent.</title><link href="geertdepont.github.io/generic/generic-2/" rel="alternate" type="text/html" title=" Design components to be as independent as possible, build them around the features of the app and make them Android-independent." /><published>2019-05-21T01:00:40+02:00</published><updated>2019-05-21T01:00:40+02:00</updated><id>geertdepont.github.io/generic/generic-2</id><content type="html" xml:base="geertdepont.github.io/generic/generic-2/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;As also remarked by two
 interviewees, a recurrent problem arises when common functionalities 
@@ -139,7 +233,51 @@ The MainPresenter is also not able to call methods from the MainActivity which a
 
 &lt;p&gt;Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;Github page&lt;/a&gt; to view the complete repository.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? As also remarked by two interviewees, a recurrent problem arises when common functionalities are not provided in base classes. This often leads to duplicated code, reducing the maintainability and testability of the app. Ideally, components should be independent from each other and their business logic should be clear and explicitly separated. By quoting one of the data points “your architecture should scream the purpose of the app”. Decoupled components make it easier to focus on app functionalities and their issues, without dealing with bloatware. Additionally, this enables a higher testability of the core logic of the app by making components unit-testable (ideally without requiring an emulator). Finally, by decoupling the business logic from frameworks, more emphasis is put on the business logic, making an app more testable, maintainable, and of low technical debt.</summary></entry><entry><title type="html">Counter the tendency of Activities to grow too big in size due to functionality/responsibility bloat.</title><link href="geertdepont.github.io/generic/generic-3/" rel="alternate" type="text/html" title="Counter the tendency of Activities to grow too big in size due to functionality/responsibility bloat." /><published>2019-05-21T01:00:39+02:00</published><updated>2019-05-21T01:00:39+02:00</updated><id>geertdepont.github.io/generic/generic-3</id><content type="html" xml:base="geertdepont.github.io/generic/generic-3/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;235&lt;/td&gt;
+      &lt;td&gt;As Robert Martin, aka Uncle Bob, says, “Your architecture should scream the purpose of the app.” More technically said, business logic should be clearly separated and independent of the framework.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&quot; target=&quot;_blank&quot;&gt; https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;236&lt;/td&gt;
+      &lt;td&gt;Satisfy a multitude of stakeholders: all interactions are separated in the classes/modules/components/whatever whose job is interactions, and that particular developer works only on those components while working on the UX part of the app.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&quot; target=&quot;_blank&quot;&gt; https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;210&lt;/td&gt;
+      &lt;td&gt;Decoupled code makes it easy to focus your attention on specific issues without a lot of bloatware getting in the way&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029&quot; target=&quot;_blank&quot;&gt; https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;106&lt;/td&gt;
+      &lt;td&gt;Feature switching: This is not really something that you must have, but in some cases it can be useful. Feature switching basically allows you to configure set of features/screens which should be enabled in the app, this could be done via local configuration or remotely (e.g Firebase Remote Config). I especially recommend to have remote feature switching if your application contains functionality dependent on external web services. If external API fails, dependent features in your app will stop working as well. In such situation you should disable broken feature ASAP to avoid annoying users. If you have a remote configuration setup you can just disable given feature in remote console, until the API starts working again.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://medium.com/stepstone-tech/considering-architecture-for-android-app-f7f0fabf680a&quot; target=&quot;_blank&quot;&gt; https://medium.com/stepstone-tech/considering-architecture-for-android-app-f7f0fabf680a&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;232&lt;/td&gt;
+      &lt;td&gt;It’s all about decoupling your business logic from the outside world (meaning frameworks, implementation details, etc.) and ending up with the maintainable, testable and with low technical debt application&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;http://pguardiola.com/blog/clean-architecture-part-1/&quot; target=&quot;_blank&quot;&gt; http://pguardiola.com/blog/clean-architecture-part-1/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+      &lt;td&gt;238&lt;/td&gt;
+      &lt;td&gt;Run away from the real world (Android, DB, Internet…). We have already said that we want to scream what the app really does; that’s it. We want to emphasize business logic and leave framework details under the hood. This point should be even stronger: we would like to not only hide framework details but all the details related to the outside world.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&quot; target=&quot;_blank&quot;&gt; https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;239&lt;/td&gt;
+      &lt;td&gt;Enable your components to be testable. You should unit test your app as much as possible and your architecture should allow you to do it. If you can’t unit test everything, you should at least cover your business logic with tests. Separation from the real world goes nicely with this. It’s easier to test your business logic if it is clearly separated from the rest of the app.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&quot; target=&quot;_blank&quot;&gt; https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? As also remarked by two interviewees, a recurrent problem arises when common functionalities are not provided in base classes. This often leads to duplicated code, reducing the maintainability and testability of the app. Ideally, components should be independent from each other and their business logic should be clear and explicitly separated. By quoting one of the data points “your architecture should scream the purpose of the app”. Decoupled components make it easier to focus on app functionalities and their issues, without dealing with bloatware. Additionally, this enables a higher testability of the core logic of the app by making components unit-testable (ideally without requiring an emulator). Finally, by decoupling the business logic from frameworks, more emphasis is put on the business logic, making an app more testable, maintainable, and of low technical debt.</summary></entry><entry><title type="html">Counter the tendency of Activities to grow too big in size due to functionality/responsibility bloat.</title><link href="geertdepont.github.io/generic/generic-3/" rel="alternate" type="text/html" title="Counter the tendency of Activities to grow too big in size due to functionality/responsibility bloat." /><published>2019-05-21T01:00:39+02:00</published><updated>2019-05-21T01:00:39+02:00</updated><id>geertdepont.github.io/generic/generic-3</id><content type="html" xml:base="geertdepont.github.io/generic/generic-3/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;Android
 Activities should ideally contain exclusively logic handling the
 user interface (UI) and operating system interactions. Nevertheless, a common architectural issue consists of delegating too
@@ -190,7 +328,52 @@ This is a simplistic example and in real life applications, the validation of pa
 &lt;p&gt;&lt;br /&gt;
 Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;Github page&lt;/a&gt; to view the complete repository.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Android Activities should ideally contain exclusively logic handling the user interface (UI) and operating system interactions. Nevertheless, a common architectural issue consists of delegating too many functionalities and responsibilities to a single Activity. This leads to Activities slowly becoming god-classes. As the Android framework does not support the reuse of methods implemented in activities, code tends to be directly copied into other ones, increasing code duplication and impacting negatively the app’s maintainability. Additionally, testing might become a challenging task, as complex business logic could reside in Activities, which by themselves result arduous to unit test. Finally, as activities are kept in memory at runtime, “godactivities” can lead to the deterioration of apps’ performance.</summary></entry><entry><title type="html">Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration.</title><link href="geertdepont.github.io/generic/generic-4/" rel="alternate" type="text/html" title="Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration." /><published>2019-05-21T01:00:38+02:00</published><updated>2019-05-21T01:00:38+02:00</updated><id>geertdepont.github.io/generic/generic-4</id><content type="html" xml:base="geertdepont.github.io/generic/generic-4/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;82&lt;/td&gt;
+      &lt;td&gt;Activities and Fragments should only contain logic that handles UI and operating system interactions.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developer.android.com/jetpack/docs/guide&quot; target=&quot;_blank&quot;&gt;https://developer.android.com/jetpack/docs/guide&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;139&lt;/td&gt;
+      &lt;td&gt;Use a single activity for the whole flow&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://blog.gojekengineering.com/an-architectural-overview-of-the-new-go-jek-rider-app-bb1dbd174323&quot; target=&quot;_blank&quot;&gt;https://blog.gojekengineering.com/an-architectural-overview-of-the-new-go-jek-rider-app-bb1dbd174323&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;150&lt;/td&gt;
+      &lt;td&gt;Activities and Fragments become very large and difficult to maintain&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&quot; target=&quot;_blank&quot;&gt;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+      &lt;td&gt;152&lt;/td&gt;
+      &lt;td&gt;Unit testing becomes challenging, if not impossible, because a lot of the logic lives within the Activities or Fragments that are arduous to unit test.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&quot; target=&quot;_blank&quot;&gt;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+      &lt;td&gt;161&lt;/td&gt;
+      &lt;td&gt;Activities and Fragments become very lightweight. Their only responsibilities are to set up/update the UI and handle user events. Therefore, they become easier to maintain.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&quot; target=&quot;_blank&quot;&gt;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;240&lt;/td&gt;
+      &lt;td&gt;God Activity: We have an activity that touches databases, goes to the Internet, does parsing, spawns threads, and renders data. So, all the stakeholders are looking at the single class, none of the concerns is separated, it’s not testable, and business logic is mixed with the Android stuff.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&quot; target=&quot;_blank&quot;&gt;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+      &lt;td&gt;254&lt;/td&gt;
+      &lt;td&gt;Activities were often bloated with multiple responsibilities. There was a lot of code duplication custom views and custom logic.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://academy.realm.io/posts/converting-an-app-to-use-clean-architecture/&quot; target=&quot;_blank&quot;&gt;https://academy.realm.io/posts/converting-an-app-to-use-clean-architecture/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Android Activities should ideally contain exclusively logic handling the user interface (UI) and operating system interactions. Nevertheless, a common architectural issue consists of delegating too many functionalities and responsibilities to a single Activity. This leads to Activities slowly becoming god-classes. As the Android framework does not support the reuse of methods implemented in activities, code tends to be directly copied into other ones, increasing code duplication and impacting negatively the app’s maintainability. Additionally, testing might become a challenging task, as complex business logic could reside in Activities, which by themselves result arduous to unit test. Finally, as activities are kept in memory at runtime, “godactivities” can lead to the deterioration of apps’ performance.</summary></entry><entry><title type="html">Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration.</title><link href="geertdepont.github.io/generic/generic-4/" rel="alternate" type="text/html" title="Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration." /><published>2019-05-21T01:00:38+02:00</published><updated>2019-05-21T01:00:38+02:00</updated><id>geertdepont.github.io/generic/generic-4</id><content type="html" xml:base="geertdepont.github.io/generic/generic-4/">&lt;h3&gt;Why?&lt;/h3&gt;
 
 &lt;p&gt;Architectural components of an app should
 have a single, well defined, responsibility. As a component
@@ -241,7 +424,42 @@ Which would then have too many responsibilities.&lt;/p&gt;
   &lt;img src=&quot;/assets/AppComponentWithoutAuth.png&quot; alt=&quot;AppComponent without AuthComponent&quot; width=&quot;500&quot; /&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why?</summary></entry><entry><title type="html">When starting a new project, carefully select a fitting architectural pattern to adhere to.</title><link href="geertdepont.github.io/generic/generic-5/" rel="alternate" type="text/html" title="When starting a new project, carefully select a fitting architectural pattern to adhere to." /><published>2019-05-21T01:00:37+02:00</published><updated>2019-05-21T01:00:37+02:00</updated><id>geertdepont.github.io/generic/generic-5</id><content type="html" xml:base="geertdepont.github.io/generic/generic-5/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;105&lt;/td&gt;
+      &lt;td&gt;Separating project into a few modules should give you some profits. You can have abstract layers physically located in different modules, each module has its own build configuration, so you can customize dependencies for each of them. For example UI module doesn’t have to see database or network models, and low level modules don’t have to access libraries for animations, UI binding etc. With Android Gradle Plugin 3.0 or higher, modularization also increases building speed and makes solid fundaments for developing Instant Apps. Keep in mind, that modularization will be easy to achieve and low at cost at the beginning of project development, but when project is mature it will require much more effort.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://medium.com/stepstone-tech/considering-architecture-for-android-app-f7f0fabf680a&quot; target=&quot;_blank&quot;&gt;https://medium.com/stepstone-tech/considering-architecture-for-android-app-f7f0fabf680a&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+      &lt;td&gt;92&lt;/td&gt;
+      &lt;td&gt;Create welldefined boundaries of responsibility between various modules of your app. For example, don't spread the code that loads data from the network across multiple classes or packages in your code base. Similarly, don't define multiple unrelated responsibilities—such as data caching and data binding—into the same class.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developer.android.com/jetpack/docs/guide&quot; target=&quot;_blank&quot;&gt;https://developer.android.com/jetpack/docs/guide&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;      
+    &lt;tr&gt;
+      &lt;td&gt;94&lt;/td&gt;
+      &lt;td&gt;Consider how to make each module testable in isolation. For example, having a welldefined API for fetching data from the network makes it easier to test the module that persists that data in a local database. If, instead, you mix the logic from these two modules in one place, or distribute your networking code across your entire code base, it becomes much more difficult—if not impossible—to test.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developer.android.com/jetpack/docs/guide&quot; target=&quot;_blank&quot;&gt;https://developer.android.com/jetpack/docs/guide&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+      &lt;td&gt;237&lt;/td&gt;
+      &lt;td&gt;Encourage separation of concerns. What I have said before is an example of separation of concerns. We encourage that particular approach because it maps nicely to the organization of teams and project phases, but your architecture should also encourage separation of concerns generally. Separation of concerns, or the single responsibility principle, says that every component should have only one reason to change.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&quot; target=&quot;_blank&quot;&gt;https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;    
+    &lt;tr&gt;
+      &lt;td&gt;141&lt;/td&gt;
+      &lt;td&gt;[A Component] Has a single, well defined responsibility. The most important property of a Component is it should do just one thing. Nearly all Components in our app are currently about 100 –120 lines. When a Component starts getting bigger, we break it into more Components.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://blog.gojekengineering.com/an-architectural-overview-of-the-new-go-jek-rider-app-bb1dbd174323&quot; target=&quot;_blank&quot;&gt;https://blog.gojekengineering.com/an-architectural-overview-of-the-new-go-jek-rider-app-bb1dbd174323&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why?</summary></entry><entry><title type="html">When starting a new project, carefully select a fitting architectural pattern to adhere to.</title><link href="geertdepont.github.io/generic/generic-5/" rel="alternate" type="text/html" title="When starting a new project, carefully select a fitting architectural pattern to adhere to." /><published>2019-05-21T01:00:37+02:00</published><updated>2019-05-21T01:00:37+02:00</updated><id>geertdepont.github.io/generic/generic-5</id><content type="html" xml:base="geertdepont.github.io/generic/generic-5/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;Picking the
 right architectural pattern (e.g., MVP or MVVM) for the
 context and business goals of the app is a crucial decision. By
@@ -278,7 +496,36 @@ So whenever a test fails, it can be directly seen from which component this test
 &lt;p&gt;Check out both the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample&quot; target=&quot;_blank&quot;&gt;MVVM example&lt;/a&gt; and the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;MVP example&lt;/a&gt; on these links.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;MVVM example&lt;/button&gt;&lt;/a&gt;
-&lt;a href=&quot; https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;MVP example&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Picking the right architectural pattern (e.g., MVP or MVVM) for the context and business goals of the app is a crucial decision. By adhering to an architectural patter selected a priori, separating responsibilities into components becomes a more straightforward process, and the growth of architectural technical debt is hindered. It is important to note that, when a certain level of adaptability/maintainability is not required, the selection of an ill-suited architectural pattern might lead to over-engineering. Choosing the architectural pattern to adopt is hence a nontrivial decision which should be taken by considering the context of apps, and their business/organizational goals.</summary></entry><entry><title type="html">Organize your Java/Kotlin packages and files either by layer or by app feature.</title><link href="geertdepont.github.io/generic/generic-6/" rel="alternate" type="text/html" title=" Organize your Java/Kotlin packages and files either by layer or by app feature." /><published>2019-05-21T01:00:36+02:00</published><updated>2019-05-21T01:00:36+02:00</updated><id>geertdepont.github.io/generic/generic-6</id><content type="html" xml:base="geertdepont.github.io/generic/generic-6/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;a href=&quot; https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;MVP example&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;168&lt;/td&gt;
+      &lt;td&gt;MVVM can not be justified for small projects.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://stfalcon.com/en/blog/post/android-mvvm&quot; target=&quot;_blank&quot;&gt;https://stfalcon.com/en/blog/post/android-mvvm&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;   
+    &lt;tr&gt;
+      &lt;td&gt;229&lt;/td&gt;
+      &lt;td&gt;[...] Onion Architecture, Hexagonal Architecture (also known as Ports and Adapters) and the popular Clean Architecture, among other layered architectures. Though these approximations have their own fancy names and could seem completely different, they share a lot in common. In fact, its main intent is the same: Achieve a highlevel separation of concerns by layering.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;http://pguardiola.com/blog/clean-architecture-part-1/&quot; target=&quot;_blank&quot;&gt;http://pguardiola.com/blog/clean-architecture-part-1/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;        
+    &lt;tr&gt;
+      &lt;td&gt;230&lt;/td&gt;
+      &lt;td&gt;[General on styles] There are a lot of scenarios where we aren’t gonna need that level of adaptability. Especially in mobile applications in which the domain logic is really close to the view. Prematurely creating that kind of indirection and isolation is usually a waste of time and it may be a bit overkill.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;http://pguardiola.com/blog/clean-architecture-part-1/&quot; target=&quot;_blank&quot;&gt;http://pguardiola.com/blog/clean-architecture-part-1/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;       
+    &lt;tr&gt;
+      &lt;td&gt;118&lt;/td&gt;
+      &lt;td&gt;Another important thing is different entities for each layer of application. As dependency inversion principle works in the other way works additional fields decreasing. The purpose of different entities for each layer is to reduce the amount of information inner layer may depend on. E.g., you don’t need api version at your entity in domain and presentation layers of your application, you only need this property in data layers.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://hackernoon.com/android-clean-architecture-with-kotlin-rxjava-and-dagger-2-6006be2d0c02/&quot; target=&quot;_blank&quot;&gt;https://hackernoon.com/android-clean-architecture-with-kotlin-rxjava-and-dagger-2-6006be2d0c02/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;    
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Picking the right architectural pattern (e.g., MVP or MVVM) for the context and business goals of the app is a crucial decision. By adhering to an architectural patter selected a priori, separating responsibilities into components becomes a more straightforward process, and the growth of architectural technical debt is hindered. It is important to note that, when a certain level of adaptability/maintainability is not required, the selection of an ill-suited architectural pattern might lead to over-engineering. Choosing the architectural pattern to adopt is hence a nontrivial decision which should be taken by considering the context of apps, and their business/organizational goals.</summary></entry><entry><title type="html">Organize your Java/Kotlin packages and files either by layer or by app feature.</title><link href="geertdepont.github.io/generic/generic-6/" rel="alternate" type="text/html" title=" Organize your Java/Kotlin packages and files either by layer or by app feature." /><published>2019-05-21T01:00:36+02:00</published><updated>2019-05-21T01:00:36+02:00</updated><id>geertdepont.github.io/generic/generic-6</id><content type="html" xml:base="geertdepont.github.io/generic/generic-6/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;By organizing your packages and files  it becomes easier for 
 programmers to find the code which performs a certain aspect of your application.
 Whenever a feature has to be changed in layer-organized file system, multiple files in different packages need to be changed. 
@@ -322,7 +569,32 @@ And the View presents the data to the user in a way the Presenter decided.&lt;/p
 &lt;p&gt;Check out both the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot; target=&quot;_blank&quot;&gt;MVVM example&lt;/a&gt; and the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;MVP example&lt;/a&gt; on these links.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;MVVM example&lt;/button&gt;&lt;/a&gt;
-&lt;a href=&quot; https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;MVP example&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? By organizing your packages and files it becomes easier for programmers to find the code which performs a certain aspect of your application. Whenever a feature has to be changed in layer-organized file system, multiple files in different packages need to be changed. As however in packaging by feature this is less the case.</summary></entry><entry><title type="html">Take full advantage of libraries. Do not try to reinvent the wheel and loose time by implementing boilerplate code. Focus on what makes your app stand out from the rest and delegate what is left to libraries.</title><link href="geertdepont.github.io/generic/generic-7/" rel="alternate" type="text/html" title="Take full advantage of libraries. Do not try to reinvent the wheel and loose time by implementing boilerplate code. Focus on what makes your app stand out from the rest and delegate what is left to libraries." /><published>2019-05-21T01:00:35+02:00</published><updated>2019-05-21T01:00:35+02:00</updated><id>geertdepont.github.io/generic/generic-7</id><content type="html" xml:base="geertdepont.github.io/generic/generic-7/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;a href=&quot; https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;MVP example&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;111&lt;/td&gt;
+      &lt;td&gt;Code/package organization is one of the key factors of a good architecture: package structure is the very first thing encountered by a programmer when browsing source code. Everything flows from it. Everything depends on it.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://fernandocejas.com/2018/05/07/architecting-android-reloaded/&quot; target=&quot;_blank&quot;&gt;https://fernandocejas.com/2018/05/07/architecting-android-reloaded/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;     
+    &lt;tr&gt;
+      &lt;td&gt;195&lt;/td&gt;
+      &lt;td&gt;I consider code/package organization one of the key factors of a good architecture: package structure is the very first thing encountered by a programmer when browsing source code. Everything flows from it. Everything depends on it. Either package by layer of functionality.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot; target=&quot;_blank&quot;&gt;https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;       
+    &lt;tr&gt;
+      &lt;td&gt;256&lt;/td&gt;
+      &lt;td&gt;For example, you should be able to look at a package structure and understand how it’s organized. I often think about this from the perspective of writing open source code: would my code be apparent to I don’t know, and who isn’t on my team?&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://academy.realm.io/posts/converting-an-app-to-use-clean-architecture/&quot; target=&quot;_blank&quot;&gt;https://academy.realm.io/posts/converting-an-app-to-use-clean-architecture/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;   
+
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? By organizing your packages and files it becomes easier for programmers to find the code which performs a certain aspect of your application. Whenever a feature has to be changed in layer-organized file system, multiple files in different packages need to be changed. As however in packaging by feature this is less the case.</summary></entry><entry><title type="html">Take full advantage of libraries. Do not try to reinvent the wheel and loose time by implementing boilerplate code. Focus on what makes your app stand out from the rest and delegate what is left to libraries.</title><link href="geertdepont.github.io/generic/generic-7/" rel="alternate" type="text/html" title="Take full advantage of libraries. Do not try to reinvent the wheel and loose time by implementing boilerplate code. Focus on what makes your app stand out from the rest and delegate what is left to libraries." /><published>2019-05-21T01:00:35+02:00</published><updated>2019-05-21T01:00:35+02:00</updated><id>geertdepont.github.io/generic/generic-7</id><content type="html" xml:base="geertdepont.github.io/generic/generic-7/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;Taking full advantage of libraries does not only save time, but could also be an improvement of 
 your own implementation. Since multiple users could have been working on this implementation and many hands make light work.
  However do check the ratings of the library before using it. Or dive into the code of the library. This way you can
@@ -347,7 +619,36 @@ Which would lead to ugly code.&lt;/p&gt;
 
 &lt;p&gt;Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot; target=&quot;_blank&quot;&gt;MVVM example&lt;/a&gt; to view the complete repository.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Taking full advantage of libraries does not only save time, but could also be an improvement of your own implementation. Since multiple users could have been working on this implementation and many hands make light work. However do check the ratings of the library before using it. Or dive into the code of the library. This way you can see that you are working with high quality and bug free code.</summary></entry><entry><title type="html">Locally cache data for supporting offline-first experience.</title><link href="geertdepont.github.io/generic/generic-8/" rel="alternate" type="text/html" title="Locally cache data for supporting offline-first experience." /><published>2019-05-21T01:00:34+02:00</published><updated>2019-05-21T01:00:34+02:00</updated><id>geertdepont.github.io/generic/generic-8</id><content type="html" xml:base="geertdepont.github.io/generic/generic-8/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;95&lt;/td&gt;
+      &lt;td&gt;Focus on the unique core of your app so it stands out from other apps. Don't reinvent the wheel by writing the same boilerplate code again and again. Instead, focus your time and energy on what makes your app unique, and let the Android Architecture Components and other recommended libraries handle the repetitive boilerplate.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developer.android.com/jetpack/docs/guide&quot; target=&quot;_blank&quot;&gt;https://developer.android.com/jetpack/docs/guide&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;     
+    &lt;tr&gt;
+      &lt;td&gt;171&lt;/td&gt;
+      &lt;td&gt;Don’t Reinvent the Wheel. Initially, I had a bad idea of not using opensource libraries. Whatever I needed, I just wanted to make it myself. It’s was seriously a terrible idea. Focus more on the core business logic of your app. If you want to make network calls in your app, you don’t need to make a Retrofit yourself.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51&quot; target=&quot;_blank&quot;&gt;https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;     
+    &lt;tr&gt;
+      &lt;td&gt;172&lt;/td&gt;
+      &lt;td&gt;There are lots and lots of opensource libraries available in Github for you to use for FREE. But don’t get too excited and start using libraries blindly. Check the number of stars that particular library has, the more the better. Check if the author of that library have also created some other popular libraries as well. Check the issues (both open and closed), which can give you a better idea of how robust and stable the library is in production. If you can afford the time, you should dive into the code of that library and check yourself if its really worth it.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51&quot; target=&quot;_blank&quot;&gt;https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;       
+    &lt;tr&gt;
+      &lt;td&gt;174&lt;/td&gt;
+      &lt;td&gt;Never ever, ever make the mistake of releasing your app on the Play Store without using ProGuard. ProGuard not only minifies your code, but it obfuscates your code making it harder for reverseengineers to understand, replicate and manipulate it.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51&quot; target=&quot;_blank&quot;&gt;https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;      
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Taking full advantage of libraries does not only save time, but could also be an improvement of your own implementation. Since multiple users could have been working on this implementation and many hands make light work. However do check the ratings of the library before using it. Or dive into the code of the library. This way you can see that you are working with high quality and bug free code.</summary></entry><entry><title type="html">Locally cache data for supporting offline-first experience.</title><link href="geertdepont.github.io/generic/generic-8/" rel="alternate" type="text/html" title="Locally cache data for supporting offline-first experience." /><published>2019-05-21T01:00:34+02:00</published><updated>2019-05-21T01:00:34+02:00</updated><id>geertdepont.github.io/generic/generic-8</id><content type="html" xml:base="geertdepont.github.io/generic/generic-8/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;Using a cache to store data, enhances the user’s experience. Activities are destroyed 
 constantly. Retrieving data from the server whenever an activity is destroyed, 
 is a waste of mobile data and a bad user experience. 
@@ -394,7 +695,42 @@ AndroidManifest.xml&lt;/uses-permission&gt;&lt;/p&gt;
 
 &lt;p&gt;Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;Github page&lt;/a&gt; to view the complete repository.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using a cache to store data, enhances the user’s experience. Activities are destroyed constantly. Retrieving data from the server whenever an activity is destroyed, is a waste of mobile data and a bad user experience. A synchronization of a local database and the webservice can solve this problem. Whenever the local database is empty, or the data is not valid, retrieve data from the web server.</summary></entry><entry><title type="html">Use exclusively interfaces to let app modules communicate. This protects the architectural structure and helps defining a clear responsibility of modules.</title><link href="geertdepont.github.io/generic/generic-9/" rel="alternate" type="text/html" title="Use exclusively interfaces to let app modules communicate. This protects the architectural structure and helps defining a clear responsibility of modules." /><published>2019-05-21T01:00:33+02:00</published><updated>2019-05-21T01:00:33+02:00</updated><id>geertdepont.github.io/generic/generic-9</id><content type="html" xml:base="geertdepont.github.io/generic/generic-9/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;96&lt;/td&gt;
+      &lt;td&gt;Persist as much relevant and fresh data as possible. That way, users can enjoy your app's functionality even when their device is in offline mode. Remember that not all of your users enjoy constant, highspeed connectivity.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developer.android.com/jetpack/docs/guide&quot; target=&quot;_blank&quot;&gt;https://developer.android.com/jetpack/docs/guide&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;     
+    &lt;tr&gt;
+      &lt;td&gt;138&lt;/td&gt;
+      &lt;td&gt;If the app isn't designed with care, it can request data that it doesn't need, which places a performance burden on the device, and on the network. If the data is stored or synchronized with a remote database, this can also slow the app and waste the user's data plan. The paging library addresses issues with existing solutions.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://google-developer-training.gitbooks.io/android-developer-advanced-course-concepts/content/unit-6-working-with-architecture-components/lesson-14-architecture-components/14-1-c-architecture-components/14-1-c-architecture-components.html&quot; target=&quot;_blank&quot;&gt;https://google-developer-training.gitbooks.io/android-developer-advanced-course-concepts/content/unit-6-working-with-architecture-components/lesson-14-architecture-components/14-1-c-architecture-components/14-1-c-architecture-components.html&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;      
+    &lt;tr&gt;
+      &lt;td&gt;202&lt;/td&gt;
+      &lt;td&gt;In Android screen orientation change is a challenging problem. The simplest way to deal with that is to ignore it. Just reload everything on each screen orientation change. This is a completely valid solution. Most of the time your app works offline too so that data comes from a local database or another local cache. Therefore, loading data is superfast after screen orientation changes. However, I personally dislike seeing a loading indicator [...]&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;http://hannesdorfmann.com/android/mosby3-mvi-1&quot; target=&quot;_blank&quot;&gt;http://hannesdorfmann.com/android/mosby3-mvi-1&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;     
+    &lt;tr&gt;
+      &lt;td&gt;132&lt;/td&gt;
+      &lt;td&gt;By relying on our current implementation in this situation, we need to fetch the data again from the network. This refetching process isn't just a bad user experience; it's also wasteful because it consumes valuable mobile data. You could fix this issue by caching the web requests, but that creates a key new problem: What happens if the same user data shows up from another type of request, such as fetching a list of friends? The app would show inconsistent data, which is confusing at best. The proper way to handle this situation is to use a persistent model. This is where the Room persistence library comes to the rescue.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.pluralsight.com/guides/mvp-with-testing-part-1&quot; target=&quot;_blank&quot;&gt;https://www.pluralsight.com/guides/mvp-with-testing-part-1&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;   
+    &lt;tr&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;Most modern Android apps maintain a synchronization between local database and the web service, this is super useful for users which helps in using the app even if the device is offline. This is something which users have started to nowadays expect in apps. It [the model] states to first fetch the data from local database; if the data doesn’t exist then make the required network call based upon the “should fetch” condition and then save the fetched data into the local database on response.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://proandroiddev.com/building-modern-apps-using-the-android-architecture-guidelines-3238fff96f14&quot; target=&quot;_blank&quot;&gt;https://proandroiddev.com/building-modern-apps-using-the-android-architecture-guidelines-3238fff96f14&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;     
+    
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using a cache to store data, enhances the user’s experience. Activities are destroyed constantly. Retrieving data from the server whenever an activity is destroyed, is a waste of mobile data and a bad user experience. A synchronization of a local database and the webservice can solve this problem. Whenever the local database is empty, or the data is not valid, retrieve data from the web server.</summary></entry><entry><title type="html">Use exclusively interfaces to let app modules communicate. This protects the architectural structure and helps defining a clear responsibility of modules.</title><link href="geertdepont.github.io/generic/generic-9/" rel="alternate" type="text/html" title="Use exclusively interfaces to let app modules communicate. This protects the architectural structure and helps defining a clear responsibility of modules." /><published>2019-05-21T01:00:33+02:00</published><updated>2019-05-21T01:00:33+02:00</updated><id>geertdepont.github.io/generic/generic-9</id><content type="html" xml:base="geertdepont.github.io/generic/generic-9/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;Using interfaces for linking modules, is a great way for module communication. 
 This way modules can’t access methods that are not declared in the interface. 
 And helps define a clear overview of what each module does. 
@@ -427,7 +763,33 @@ OnSuccess() is called if the data is successfully retrieved from cache, or is ne
 
 &lt;p&gt;Check out the &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;Github page&lt;/a&gt; to view the complete repository.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using interfaces for linking modules, is a great way for module communication. This way modules can’t access methods that are not declared in the interface. And helps define a clear overview of what each module does. Using interfaces for linking modules, is a great way for module communication. This way modules can’t access methods that are not declared in the interface. And helps define a clear overview of what each module does.</summary></entry><entry><title type="html">Avoid nested callbacks, as they could lead to a “callback hell”. Approximatively, more than 2 levels of callbacks are considered to reduce maintainability and understandability. This problem is commonly fixed by taking advantage of the RxJava library.</title><link href="geertdepont.github.io/generic/generic-10/" rel="alternate" type="text/html" title="Avoid nested callbacks, as they could lead to a “callback hell”. Approximatively, more than 2 levels of callbacks are considered to reduce maintainability and understandability. This problem is commonly fixed by taking advantage of the RxJava library." /><published>2019-05-21T01:00:32+02:00</published><updated>2019-05-21T01:00:32+02:00</updated><id>geertdepont.github.io/generic/generic-10</id><content type="html" xml:base="geertdepont.github.io/generic/generic-10/">&lt;h3&gt;Why?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;93&lt;/td&gt;
+      &lt;td&gt;Expose as little as possible from each module. Don't be tempted to create just that one shortcut that exposes an internal implementation detail from one module. You might gain a bit of time in the short term, but you then incur technical debt many times over as your codebase evolves.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developer.android.com/jetpack/docs/guide&quot; target=&quot;_blank&quot;&gt;https://developer.android.com/jetpack/docs/guide&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;      
+     &lt;tr&gt;
+      &lt;td&gt;147&lt;/td&gt;
+      &lt;td&gt;I started to use interfaces for linking the modules together. That way, they can’t access methods other than the ones declared on the interface. This protects the structure and helps defining a clear responsibility for each module, avoiding developer mistakes like putting the logic in the wrong place.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://cheesecakelabs.com/blog/using-viper-architecture-android/&quot; target=&quot;_blank&quot;&gt;https://cheesecakelabs.com/blog/using-viper-architecture-android/&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;        
+    &lt;tr&gt;
+      &lt;td&gt;142&lt;/td&gt;
+      &lt;td&gt;Components have explicitly defined inputs. A component takes all its inputs via the constructor. Specifying, the necessary inputs in the constructor ensures some compile time safety by guaranteeing that we have all values available before creating the Component. Another advantage of explicit inputs is that during testing we can mock these dependencies easily and test the component in isolation.&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://blog.gojekengineering.com/an-architectural-overview-of-the-new-go-jek-rider-app-bb1dbd174323&quot; target=&quot;_blank&quot;&gt;https://blog.gojekengineering.com/an-architectural-overview-of-the-new-go-jek-rider-app-bb1dbd174323&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;     
+ 
+    
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using interfaces for linking modules, is a great way for module communication. This way modules can’t access methods that are not declared in the interface. And helps define a clear overview of what each module does. Using interfaces for linking modules, is a great way for module communication. This way modules can’t access methods that are not declared in the interface. And helps define a clear overview of what each module does.</summary></entry><entry><title type="html">Avoid nested callbacks, as they could lead to a “callback hell”. Approximatively, more than 2 levels of callbacks are considered to reduce maintainability and understandability. This problem is commonly fixed by taking advantage of the RxJava library.</title><link href="geertdepont.github.io/generic/generic-10/" rel="alternate" type="text/html" title="Avoid nested callbacks, as they could lead to a “callback hell”. Approximatively, more than 2 levels of callbacks are considered to reduce maintainability and understandability. This problem is commonly fixed by taking advantage of the RxJava library." /><published>2019-05-21T01:00:32+02:00</published><updated>2019-05-21T01:00:32+02:00</updated><id>geertdepont.github.io/generic/generic-10</id><content type="html" xml:base="geertdepont.github.io/generic/generic-10/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;Using too many callbacks leads to unreadable code. 
 These callback hells often arise when multiple server requests need to be performed for one activity. 
 For example, showing the details of users. 
@@ -471,4 +833,28 @@ Then &lt;b&gt;.flatMapIterable(x -&amp;gt; x)&lt;/b&gt; flattens a stream of ite
 
 &lt;p&gt;Checkout our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot; target=&quot;_blank&quot;&gt;MVVM example&lt;/a&gt; to view the complete repository.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using too many callbacks leads to unreadable code. These callback hells often arise when multiple server requests need to be performed for one activity. For example, showing the details of users. First you need to know which users exist, and with each username you can request the details. The RxJava library can simplify our code.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot; target=&quot;_blank&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-icon-right&quot;&gt;Go to the github page&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This guideline was extracted from:&lt;/p&gt;
+&lt;table id=&quot;guidelinelinks&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Id&lt;/th&gt;
+    &lt;th&gt;Guideline&lt;/th&gt;
+    &lt;th&gt;URL&lt;/th&gt;
+  &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;144&lt;/td&gt;
+      &lt;td&gt;No more jumping between callbacks. In this example app, coroutines also completely removed the need of using RxJava. Functions with suspendable points are easier to read and understand than some RxJava operator chains — these chains can quickly become too functional (Having said that, I don’t think that RxJava can be replaced with coroutines in every use case. Observables give us a different kind of expressiveness that can not be mapped one to one to suspendable functions. In particular once constructed observable operator chain allow many events to flow through it, while a suspendable point resumes only once per invocation)&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://blog.elpassion.com/create-a-clean-code-app-with-kotlin-coroutines-and-android-architecture-components-f533b04b5431&quot; target=&quot;_blank&quot;&gt;https://blog.elpassion.com/create-a-clean-code-app-with-kotlin-coroutines-and-android-architecture-components-f533b04b5431s&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;      
+     &lt;tr&gt;
+      &lt;td&gt;149&lt;/td&gt;
+      &lt;td&gt;Another common case is when the loadPosts() method takes a parameter that needs to be fetched from somewhere else, for example an email address provided by the Play Services SDK. It’s likely that the SDK will return the email asynchronously using a callback, meaning that we now have three levels of nested callbacks. If we keep adding complexity, this approach will result into what is known as callback hell.&lt;/td&gt;
+      &lt;td&gt;&amp;lt;a href=&quot;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&quot; target=&quot;_blank”&amp;gt;https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65&amp;lt;/a&amp;gt;&lt;/td&gt;
+    &lt;/tr&gt;   
+    &lt;tr&gt;
+      &lt;td&gt;192&lt;/td&gt;
+      &lt;td&gt;Simplified asynchronous tasks: java threads and futures are complex to manipulate and synchronize if more than one single level of asynchronous execution is required, so by using schedulers we can jump between background and main thread in an easy way (with no extra effort), especially when we need to update the UI. We also avoid what we call a “callback hell”, which makes our code unreadable and hard to follow up.&lt;/td&gt;
+      &lt;td&gt;&amp;lt;a href=&quot;https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&quot; target=&quot;_blank”&amp;gt;https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/&amp;lt;/a&amp;gt;&lt;/td&gt;
+    &lt;/tr&gt;      
+&lt;/table&gt;</content><author><name>Geert de Pont</name></author><summary type="html">Why? Using too many callbacks leads to unreadable code. These callback hells often arise when multiple server requests need to be performed for one activity. For example, showing the details of users. First you need to know which users exist, and with each username you can request the details. The RxJava library can simplify our code.</summary></entry></feed>
