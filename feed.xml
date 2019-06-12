@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="geertdepont.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="geertdepont.github.io/" rel="alternate" type="text/html" /><updated>2019-06-12T02:13:09+02:00</updated><id>geertdepont.github.io/feed.xml</id><title type="html">Guidelines for Architecting Android Apps</title><subtitle>42 guidelines for creating good Android applications. These guidelines are formed in the https://robertoverdecchia.github.io/papers/ICSA_2019.pdf paper.</subtitle><author><name>Geert de Pont</name></author><entry><title type="html">Decouple components and explicitly inject/manage the dependencies among them</title><link href="geertdepont.github.io/generic/generic-1/" rel="alternate" type="text/html" title="Decouple components and explicitly inject/manage the dependencies among them" /><published>2019-05-21T01:00:41+02:00</published><updated>2019-05-21T01:00:41+02:00</updated><id>geertdepont.github.io/generic/generic-1</id><content type="html" xml:base="geertdepont.github.io/generic/generic-1/">&lt;h3&gt;Why?&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="geertdepont.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="geertdepont.github.io/" rel="alternate" type="text/html" /><updated>2019-06-12T02:23:59+02:00</updated><id>geertdepont.github.io/feed.xml</id><title type="html">Guidelines for Architecting Android Apps</title><subtitle>42 guidelines for creating good Android applications. These guidelines are formed in the https://robertoverdecchia.github.io/papers/ICSA_2019.pdf paper.</subtitle><author><name>Geert de Pont</name></author><entry><title type="html">Decouple components and explicitly inject/manage the dependencies among them</title><link href="geertdepont.github.io/generic/generic-1/" rel="alternate" type="text/html" title="Decouple components and explicitly inject/manage the dependencies among them" /><published>2019-05-21T01:00:41+02:00</published><updated>2019-05-21T01:00:41+02:00</updated><id>geertdepont.github.io/generic/generic-1</id><content type="html" xml:base="geertdepont.github.io/generic/generic-1/">&lt;h3&gt;Why?&lt;/h3&gt;
 &lt;p&gt;While not strictly necessary, utilizing a dependency injection framework
 can drastically simplify the management of dependencies between Android architectural components. 
 This supports a clean decoupling of architectural components and avoids unnecessary boilerplate for connecting them.
@@ -25,12 +25,12 @@ dependencies. To perform this dependency injection, dagger uses the following an
 &lt;p&gt;We created a simple &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot;&gt;MVP login Application&lt;/a&gt;. The event diagram of the MVP login:&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/MVPLogin_injection.png&quot; alt=&quot;Login Injection&quot; width=&quot;700&quot; /&gt;
+  &lt;img src=&quot;/assets/MVPLogin_injection.png&quot; alt=&quot;Login Injection&quot; width=&quot;90%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;The lifecycle of our components:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/Component_lifecycle.png&quot; alt=&quot;Login Injection&quot; width=&quot;500&quot; /&gt;
+  &lt;img src=&quot;/assets/Component_lifecycle.png&quot; alt=&quot;Login Injection&quot; width=&quot;50%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;As you can see the AuthComponent gets added to the AppComponent after the validation of the credentials.&lt;/p&gt;
@@ -99,7 +99,7 @@ more testable, maintainable, and of low technical debt.&lt;/p&gt;
 
 &lt;p&gt;The event diagram of the Boss Application:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/BossApplication_lifecycle.png&quot; alt=&quot;Login Injection&quot; width=&quot;700&quot; /&gt;
+  &lt;img src=&quot;/assets/BossApplication_lifecycle.png&quot; alt=&quot;Login Injection&quot; width=&quot;90%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Each component can be easily tested. Since the MainPresenter has no actual reference to the MainActivity the 
@@ -151,7 +151,7 @@ aspect of our application. Our LoginActivity implements the LoginView class.&lt;
 
 &lt;p&gt;The event diagram of the Login Application:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/MVPLogin_event_diagram.png&quot; alt=&quot;Login Event diagram&quot; width=&quot;700&quot; /&gt;
+  &lt;img src=&quot;/assets/MVPLogin_event_diagram.png&quot; alt=&quot;Login Event diagram&quot; width=&quot;90%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;We do not want our LoginActivity to create a database, and store and retrieve all the users.
@@ -237,12 +237,12 @@ context of apps, and their business/organizational goals.&lt;/p&gt;
 
 &lt;p&gt;Our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample&quot; target=&quot;_blank&quot;&gt;MVVM example&lt;/a&gt; depicted:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/MVVM_depicted.png&quot; alt=&quot;MVVM depicted&quot; width=&quot;700&quot; /&gt;
+  &lt;img src=&quot;/assets/MVVM_depicted.png&quot; alt=&quot;MVVM depicted&quot; width=&quot;90%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;MVVM example&lt;/a&gt; depicted:&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/MVPLogin_depicted.png&quot; alt=&quot;MVVM depicted&quot; width=&quot;700&quot; /&gt;
+  &lt;img src=&quot;/assets/MVPLogin_depicted.png&quot; alt=&quot;MVVM depicted&quot; width=&quot;90%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Both the MVVM architecture and the MVP are both recommended architectures when developing Android applications.
@@ -262,7 +262,7 @@ As however in packaging by feature this is less the case.&lt;/p&gt;
 &lt;h3&gt;Example&lt;/h3&gt;
 &lt;p&gt;Our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub&quot;&gt;MVVM-example&lt;/a&gt; somehow needs to reflect that it uses this architecture.&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/Rxjava_packages.png&quot; alt=&quot;Rxjava packages&quot; width=&quot;300&quot; /&gt;
+  &lt;img src=&quot;/assets/Rxjava_packages.png&quot; alt=&quot;Rxjava packages&quot; width=&quot;50%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;As you can see there are three main packages:&lt;/p&gt;
@@ -280,7 +280,7 @@ And the View handles the UI events and maps them to them to the ViewModel.&lt;/p
 &lt;p&gt;Our &lt;a href=&quot;https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin&quot; target=&quot;_blank&quot;&gt;MVP&lt;/a&gt; also somehow needs to reflect it’s architecture.&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/MVP_packages.png&quot; alt=&quot;MVP packages&quot; width=&quot;300&quot; /&gt;
+  &lt;img src=&quot;/assets/MVP_packages.png&quot; alt=&quot;MVP packages&quot; width=&quot;60%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;As you can see there are three main packages:&lt;/p&gt;
@@ -336,7 +336,7 @@ Whenever the local database is empty, or the data is not valid, retrieve data fr
 cache instead of making a new API request.&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/BossApplication_lifecycle.png&quot; alt=&quot;Rxjava packages&quot; width=&quot;600&quot; /&gt;
+  &lt;img src=&quot;/assets/BossApplication_lifecycle.png&quot; alt=&quot;Rxjava packages&quot; width=&quot;85%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;In the mainActivity when the button is clicked, the function showEmployees is called from the 
