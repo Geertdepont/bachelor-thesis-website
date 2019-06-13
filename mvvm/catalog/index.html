@@ -129,6 +129,8 @@
           </header>
           <article class="post-content">
             <h1 >Catalog of MVVM guidelines</h1>
+<h4>Click on one of these boxes to view the complete guideline</h4>
+
 
 <div class="wrapper">
   <div class="home">
@@ -161,7 +163,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      For example, to ensure that Views display upto-date content, it is recommended that ViewModels expose states rather than just events. This can be achieved by bundling together the data that needs to be displayed. In such way, when one of the fields to be displayed changes, a new state is emitted and the View is updated. This entails that each user interaction involves an action in the ViewModel, enabling a clean separation of concerns between MVVM components.
+                      To ensure that Views display up-to-date content, it is recommended that ViewModels expose states rather than just events.
                     </p>
                   </div>
                 </div>
@@ -185,7 +187,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      In the context of mobile applications, consistency of data can become an issue. While caching mechanisms allow to save energy and bandwidth, multiple data sources can create inconsistencies and even conflicting Views. In order to avoid such issues, it is recommended to designate a dedicated component as single source of truth for the entire app. Specifically, in the context of MVVM, the Room persistence library is an official architectural component of Android which is specifically tailored for such task.
+                      Using one designated data source avoid data inconsistencies and conflicting Views.
                     </p>
                   </div>
                 </div>
@@ -209,7 +211,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      Well-designed ViewModels should completely decouple Views from Model classes. In such way, by strictly adhering to the MVVM pattern, Models and Views can evolve independently and be tested with ease. Additionally, by applying the inversion of control principle and implementing ViewModels decoupled from the Android framework, it is possible to test ViewModels via unit tests. In contrast, if the binding between the MVVM components is too complex and intertwined, testing and debugging Android apps can become a cumbersome challenge.
+                      ViewModels should completely decouple Views from Model classes. In such way  Models and Views can evolve independently and be tested with ease.
                     </p>
                   </div>
                 </div>
@@ -238,7 +240,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      Passing context to ViewModel instances can result in a dangerous practice. In fact by storing the reference to an Activity in a ViewModel, once the Activity gets destroyed (e.g., due to a screen rotation), a memory leak could occur. By quoting a Google Android Developer Advocate: “The consumer of the data should know about the producer, but the producer - the ViewModel - doesn’t know, and doesn’t care, who consumes the data.” In order to adhere to this guideline, the LiveData architectural class provided by the Jetpack library can be used, so that Activities can simply observe the changes of the ViewModel’s data.
+                      Storing a reference to an Activity in a ViewModel, can lead to memory leaks, since the activity gets destroyed. occur.
                     </p>
                   </div>
                 </div>
@@ -262,7 +264,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      Adhering to this guideline implies that all the logic in the Views should be moved to the ViewModels. While the purpose of ViewModels is to pre-process data to be ready to use by Views, it might be tempting to implement minor operations in Views. Nevertheless, adhering to this guideline guarantees a higher level of consistency and reliability of all the components which are based on the ViewModels.
+                      All the logic in the Views should be moved to the ViewModels and the ViewModels should pre-process the data to be ready to be used by Views
                     </p>
                   </div>
                 </div>
@@ -286,7 +288,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      The single responsibility principle from the SOLID principles, leads to a creating a model for each future of the app. Each ViewModel references to it’s own repository instead of referencing the database directly. This results in cleaner code, and repetitions of the similar code.
+                      Each ViewModel references to it’s own repository instead of referencing the database directly. This results in cleaner code, and repetitions of the similar code.
                     </p>
                   </div>
                 </div>
@@ -315,7 +317,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      Delegating responsibilities from the ViewModels to other layers results into smaller and more understandable ViewModels. It also makes testing the whole architecture easier. Since each component can be tested separately. Instead of asserting that a View needs to behave after a certain retrieval from the model, the model now can be tested independently.
+                      Delegating responsibilities from the ViewModels to other layers results into smaller and more understandable ViewModels. It also makes testing the whole architecture easier since each component can be tested separately.
                     </p>
                   </div>
                 </div>
@@ -363,7 +365,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      Store the data retrieved from the web into Observables. Also check whether the data received from the web, is equal as the specified model or create a new model with the received data. This results into less unexpected code. Also creating tests checking whether the received data matches the model, allows programmers to see if the model from the web has changed.
+                      Store the data retrieved from the web into Observables and check whether the data received from the web, is equal as the specified model.
                     </p>
                   </div>
                 </div>
@@ -392,7 +394,7 @@
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
                     <p>
-                      Performing data functionalities by models, results into smaller ViewModels/Views. It also makes testing the whole architecture easier. Since each component can be tested separately. Instead of asserting that a View needs to behave after a certain retrieval from the model, the model now can be tested independently.
+                      Performing data functionalities by models, results into smaller ViewModels/Views. It also makes testing the whole architecture easier since each component can be tested separately.
                     </p>
                   </div>
                 </div>

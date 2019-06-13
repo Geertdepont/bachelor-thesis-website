@@ -129,6 +129,7 @@
           </header>
           <article class="post-content">
             <h1 >Catalog of MVP guidelines</h1>
+<h4>Click on one of these boxes to view the complete guideline</h4>
 
 <div class="wrapper">
   <div class="home">
@@ -165,7 +166,7 @@
             </div>
             <div style="padding: 15px; color: #444e5e;">
               <p>
-                The view layer of Android apps tends to become bloated with responsibilities, and hence becomes harder to maintain. In order to alleviate such problem, Activities and Fragments can be provided with preprocessed data ready to be displayed. This can be achieved by delegating data processing tasks to one or more dedicated components. In such manner, Activities and Fragments are relieved from the task of transforming and filtering domain-specific data, potentially improving the testability and usability of the app.
+                Activities and Fragments can be provided with preprocessed data ready to be displayed. This can be achieved by delegating data processing tasks to one or more dedicated components.
               </p>
             </div>
           </div>
@@ -189,7 +190,7 @@
             </div>
             <div style="padding: 15px; color: #444e5e;">
               <p>
-                To abstract Presenter components from the implementation details, Presenters should ideally avoid dependencies to the Android framework. This also entails not creating a lifecycle in Presenters, as it may hinder their maintainability and evolvability. In order to access app resources and preferences, View and Model components can be used instead, respectively. Additionally, by developing Presenters as only dependent on Java, the testability of Presenters drastically improves, as now non-instrumented unit-test cases can be written for such components.
+                This  entails not creating a lifecycle in Presenters, as it may hinder their maintainability and evolvability.
               </p>
             </div>
           </div>
@@ -213,7 +214,7 @@
             </div>
             <div style="padding: 15px; color: #444e5e;">
               <p>
-                When developing an Android app, a common issue which might emerge is related to restoring the state of Views. This issue can be solved by adapting slightly the architecture of apps. Specifically a data manager component (e.g., a data store or Jetpack Repository) can be introduced. This component is responsible for data related tasks such as fetching data from the network, caching results or returning already cached data. By scoping such component at the app level and not at the one of single Activities, issues relative to restoring View states, e.g., in the occurrence of a screen orientation change, are solved through an architecturally maintainable solution.
+                Use a datamanager component which performs data related tasks such as fetching data from the network, caching results or returning already cached data. This solves issues relative to restoring View states.
               </p>
             </div>
           </div>
@@ -242,7 +243,7 @@
             </div>
             <div style="padding: 15px; color: #444e5e;">
               <p>
-                Before starting to develop a new app feature, a good architectural practice consists in writing a contract documenting the communication between the View and the Presenter. The contract should document for each event in the View which is the corresponding action in the Presenter. By implementing contract interface classes, the source code of apps become more understandable, as the relation between the View and the Presenter is explicitly documented.
+                Writing a contract documenting the communication between the View and the Presenter makes the source code of apps become more understandable, as the relation between the View and the Presenter is explicitly documented.
               </p>
             </div>
           </div>
@@ -266,7 +267,7 @@
             </div>
             <div style="padding: 15px; color: #444e5e;">
               <p>
-                By having callbacks related to the Activity lifecycle in Presenters, Presenters become tightly coupled to Activities lifecycle. This can have a negative impact in terms of maintainability. From an architectural perspective, Presenters should not be responsible for data-related tasks. It is hence advised not to retain Presenters. An alternative solution would be to use a caching mechanism to retain data, keep Presenters stateless, and destroy Presenters when their corresponding Views are destroyed.
+                By having callbacks related to the Activity lifecycle in Presenters, Presenters become tightly coupled to Activities lifecycle. Instead use a caching mechanism to retain data, keep Presenters stateless, and destroy Presenters when their corresponding Views are destroyed.
               </p>
             </div>
           </div>
