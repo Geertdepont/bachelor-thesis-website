@@ -138,41 +138,43 @@
 <div class="homeitem">
   <div class="row">
     <div class="col-sm-6">
-      <h2 id="Clean">MVP Login</h2>
-      Clean code is when your code is understandable, has no code duplication,
-      is testable and each class should have a certain responsibility.
-      In a Clean architecture, the application is separated in layers.
-      Where the inner layers do not know anything about the outer layers.
+      <h2 id="MVPLogin">MVP Login</h2>
+      This is a login form with an empty database. So you cannot login without creating a user in the add user form.
+      Whenever you have successfully created a user. You can use this user to login. If the password is correct, you will go to the greeting page.
+      On this page you will be personally greeted, and you can view the other users from the database.
       <br>
-      <a href="/clean/" ><button type="button" class="btn btn-primary btn-icon-right">More about clean architectures</button></a>
+      <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">View Github page</button></a>
     </div>
     <div class="col-sm-6" style="margin-top: 50px">
-      <a href="/clean/" >
+      <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank" >
         <figure >
-          <img src="/assets/cleaningwindow.png" alt="Cleaning windows" width="75%">
+          <img src="/assets/LoginPhone.png" alt="Login Phone" width="23%">
+          <img src="/assets/AddUserPhone.png" alt="Login Phone" width="23%">
+          <img src="/assets/GreetPhone.png" alt="Greet Phone" width="23%">
+          <img src="/assets/ViewUsersPhone.png" alt="Greet Phone" width="23%">
         </figure>
       </a>
     </div>
   </div>
 </div>
 
-
-
 <div class="homeitem">
   <div class="row">
     <div class="col-sm-6">
-      <h2 id="MVVM">MVVM</h2>
-      <b>The MVVM pattern</b> allows easy design changes and classes become more testable using this architecture.
-      Where <b>Model</b> represents the datasource. This layer is accessed to update/store and retrieve the data.
-      <b>The View-Model</b> exposes methods and variables for the view to use.
-      <b>The View</b> uses the variables and methods from the View-Model to interact with the user.
+      <h2 id="BossApplication">BossApplication</h2>
+      This application performs a GET Request from this url: http://dummy.restapiexample.com/api/v1/employees.
+      This is a JSON file containing multiple fake employees with their salaries.
+      Whenever this request is again and within 5 seconds, it returns these employees from the cache.
+
       <br>
-      <a href="/mvvm/" ><button type="button" class="btn btn-primary btn-icon-right">More about the mvvm architecture</button></a>
+      <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">View Github page</button></a>
     </div>
     <div class="col-sm-6" style="margin-top: 50px">
-      <a href="/mvvm/" >
+      <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank" >
         <figure >
-          <img src="/assets/mvvmhome.png" alt="Cleaning windows" width="40%">
+          <img src="/assets/BossAppPhone.png" alt="Login Phone" width="30%">
+          <img src="/assets/EmployeesPhone.png" alt="Login Phone" width="30%">
+          <img src="/assets/EmployeesAndSalary.png" alt="Greet Phone" width="30%">
         </figure>
       </a>
     </div>
@@ -182,38 +184,19 @@
 <div class="homeitem">
   <div class="row">
     <div class="col-sm-6">
-      <h2 id="Generic">Generic Practices</h2>
-      Using these guidelines, will not only improve user experience, but will also make your life easier as a programmer.
-      Examples are: Dagger (dependency injection tool), using cache to improve user experience, and what to think about starting a new project.
-      Click this button to read these guidelines.
-      <br>
-      <a href="/generic/" ><button type="button" class="btn btn-primary btn-icon-right">Generic guidelines</button></a>
-    </div>
-    <div class="col-sm-6" style="margin-top: 50px;">
-      <a href="/generic/" >
-        <figure >
-          <img src="/assets/buildingmonk.png" alt="Building birdhouse" width="99%" style="padding-bottom:10px;">
-        </figure>
-      </a>
-    </div>
-  </div>
-</div>
+      <h2 id="ArchitectureExample">Architecture Example</h2>
+      This application is a note list or TODO list. On the frontpage all the notes can be seen.
+      Clicking on the plus button takes you to the add note form. Where you can create your new note.
+      Whenever the new note is added, the notelist is automatically updated.
 
-
-<div class="homeitem">
-  <div class="row">
-    <div class="col-sm-6">
-      <h2 id="MVP">MVP</h2>
-      <b>The MVP pattern</b> allows to separate the business logic from User Interface. Where <b>model</b> stands for the data-management.
-      <b>The presenter</b> decides what is shown in the view.
-      <b>The view</b> is where the framework is used to interact with the user.
       <br>
-      <a href="/mvp/" ><button type="button" class="btn btn-primary btn-icon-right">More about the mvp architecture</button></a>
+      <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">View Github page</button></a>
     </div>
-    <div class="col-sm-6" style="margin-top: 50px;">
-      <a href="/mvp/" >
+    <div class="col-sm-6" style="margin-top: 50px">
+      <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample" target="_blank" >
         <figure >
-          <img src="/assets/homemvp.png" alt="Cleaning windows" width="60%">
+          <img src="/assets/ArchitecturePhone.png" alt="Architecture Phone example" width="40%">
+          <img src="/assets/AddNotePhone.png" alt="Add note Phone example" width="40%">
         </figure>
       </a>
     </div>
@@ -223,14 +206,26 @@
 <div class="lasthomeitem">
   <div class="row">
     <div class="col-sm-6">
-      <h2 id="referenceOne">References</h2>
-      <ol class="bibliography"><li><span id="8703927">Verdecchia, R., Malavolta, I., &amp; Lago, P. (2019). Guidelines for Architecting Android Apps: A Mixed-Method Empirical Study. In <i>2019 IEEE International Conference on Software Architecture (ICSA)</i> (pp. 141–150). https://doi.org/10.1109/ICSA.2019.00023</span></li></ol>
-    </div>
-    <div class="col-sm-6">
+      <h2 id="RxJavaRetrofitGithubExample">RxJavaRetrofitGithub Example</h2>
+      This applicaton uses RxJava and performs multiple requests from my github page.
+      And retrieves the contributors from each repository and shows for each contributor the amount of contributions in that repository.
+
+
       <br>
+      <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">View Github page</button></a>
+    </div>
+    <div class="col-sm-6" style="margin-top: 50px">
+      <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub" target="_blank" >
+        <figure >
+          <img src="/assets/RxjavaGithub.png" alt="Architecture Phone example" width="40%">
+        </figure>
+      </a>
     </div>
   </div>
 </div>
+
+
+
 
 
 
