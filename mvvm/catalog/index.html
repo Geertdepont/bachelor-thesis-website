@@ -149,7 +149,7 @@
           
             <a href="/mvvm/mvvm-28/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -158,12 +158,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       Models, Views, and ViewModels should exclusively expose their state
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      To ensure that Views display up-to-date content, it is recommended that ViewModels expose states rather than just events.
+                    <p class="iconsize">
+                      <i class="icon-sun"></i>
+                      <!--To ensure that Views display up-to-date content, it is recommended that ViewModels expose states rather than just events.-->
                     </p>
                   </div>
                 </div>
@@ -173,7 +175,7 @@
           
             <a href="/mvvm/mvvm-29/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -182,12 +184,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       The app should possess a single source of truth of data.
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      Using one designated data source avoid data inconsistencies and conflicting Views.
+                    <p class="iconsize">
+                      <i class="icon-sitemap"></i>
+                      <!--Using one designated data source avoid data inconsistencies and conflicting Views.-->
                     </p>
                   </div>
                 </div>
@@ -197,7 +201,7 @@
           
             <a href="/mvvm/mvvm-30/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -206,12 +210,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       Models should be evolvable/testable
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      ViewModels should completely decouple Views from Model classes. In such way  Models and Views can evolve independently and be tested with ease.
+                    <p class="iconsize">
+                      <i class="icon-beaker"></i>
+                      <!--ViewModels should completely decouple Views from Model classes. In such way  Models and Views can evolve independently and be tested with ease.-->
                     </p>
                   </div>
                 </div>
@@ -226,7 +232,7 @@
           
             <a href="/mvvm/mvvm-31/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -235,12 +241,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       ViewModels should not refer to View-specific components.
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      Storing a reference to an Activity in a ViewModel, can lead to memory leaks, since the activity gets destroyed. occur.
+                    <p class="iconsize">
+                      <i class="icon-eye-close"></i>
+                      <!--Storing a reference to an Activity in a ViewModel, can lead to memory leaks, since the activity gets destroyed. occur.-->
                     </p>
                   </div>
                 </div>
@@ -250,7 +258,7 @@
           
             <a href="/mvvm/mvvm-32/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -259,12 +267,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       Views should always know about changes after ViewModels
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      All the logic in the Views should be moved to the ViewModels and the ViewModels should pre-process the data to be ready to be used by Views
+                    <p class="iconsize">
+                      <i class="icon-stethoscope"></i>
+                      <!--All the logic in the Views should be moved to the ViewModels and the ViewModels should pre-process the data to be ready to be used by Views-->
                     </p>
                   </div>
                 </div>
@@ -274,7 +284,7 @@
           
             <a href="/mvvm/mvvm-33/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -283,12 +293,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       Adopt one Model for each feature of the app.
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      Each ViewModel references to it’s own repository instead of referencing the database directly. This results in cleaner code, and repetitions of the similar code.
+                    <p class="iconsize">
+                      <i class="icon-resize-horizontal"></i>
+                      <!--Each ViewModel references to it’s own repository instead of referencing the database directly. This results in cleaner code, and repetitions of the similar code.-->
                     </p>
                   </div>
                 </div>
@@ -303,7 +315,7 @@
           
             <a href="/mvvm/mvvm-34/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -312,12 +324,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       Keep ViewModels as simple as possible.
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      Delegating responsibilities from the ViewModels to other layers results into smaller and more understandable ViewModels. It also makes testing the whole architecture easier since each component can be tested separately.
+                    <p class="iconsize">
+                      <i class="icon-info"></i>
+                      <!--Delegating responsibilities from the ViewModels to other layers results into smaller and more understandable ViewModels. It also makes testing the whole architecture easier since each component can be tested separately.-->
                     </p>
                   </div>
                 </div>
@@ -327,7 +341,7 @@
           
             <a href="/mvvm/mvvm-35/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -336,12 +350,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       The state of the app should be defined in the Models only.
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      Instead of emitting a stream for each feature of the model, emit the whole model. This results in up-to-date models.
+                    <p class="iconsize">
+                      <i class="icon-search"></i>
+                      <!--Instead of emitting a stream for each feature of the model, emit the whole model. This results in up-to-date models.-->
                     </p>
                   </div>
                 </div>
@@ -351,7 +367,7 @@
           
             <a href="/mvvm/mvvm-36/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -360,12 +376,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       The data produced by the Models should be reliable and of high quality.
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      Store the data retrieved from the web into Observables and check whether the data received from the web, is equal as the specified model.
+                    <p class="iconsize">
+                      <i class="icon-star"></i>
+                      <!--Store the data retrieved from the web into Observables and check whether the data received from the web, is equal as the specified model.-->
                     </p>
                   </div>
                 </div>
@@ -380,7 +398,7 @@
           
             <a href="/mvvm/mvvm-37/">
               <div class="col-sm-4">
-                <div style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <div id="catalogbox" style="margin-bottom: 21px;background-color: #fff; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                   <div style="background-color: #d4dde1;
                               border: none;
                               padding-top: 1px;
@@ -389,12 +407,14 @@
                               border-top-left-radius: 3px;
                               color: #444e5e;">
                     <h3 style="font-size: 15px; text-transform: 1px;text-align: center;">
+
                       Networking or data access functionalities should be performed by Models.
                     </h3>
                   </div>
                   <div style="padding: 15px; color: #444e5e;">
-                    <p>
-                      Performing data functionalities by models, results into smaller ViewModels/Views. It also makes testing the whole architecture easier since each component can be tested separately.
+                    <p class="iconsize">
+                      <i class="icon-rss"></i>
+                      <!--Performing data functionalities by models, results into smaller ViewModels/Views. It also makes testing the whole architecture easier since each component can be tested separately.-->
                     </p>
                   </div>
                 </div>
