@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business logic should be completely decoupled from the Android framework. - Guidelines for Architecting Android Apps</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <!--<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/clean/clean-1/">
+  <link rel="alternate" type="application/rss+xml" title="Guidelines for Architecting Android Apps" href="/feed.xml">
+
+
+  <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+  <meta name="keywords" content="Business logic should be completely decoupled from the Android framework., Guidelines for Architecting Android Apps, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/generic/generic-1/">Generic</a>
+        </li>
+        <li>
+          <a href="/mvvm/mvvm-1/">MVVM</a>
+        </li>
+        <li>
+          <a href="/mvp/mvp-1/">MVP</a>
+        </li>
+        <li>
+          <a href="/clean/clean-1/">Clean</a>
+        </li>
+        <li>
+          <a href="/credits/">Credits</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <!--<div class="docs-header" id="content">-->
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  	<!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/clean" style="text-transform: uppercase;">clean</a>	/
+    
+  </div>
+</div>
+
+
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebarpost hidden-print" role="complementary">
+        <div id="navigation">
+  <h1 style="text-transform: uppercase;">clean</h1>
+  <div style="height: 200px;width: 200px;">
+    <ul id="frontpagenav" class="nav sidenav">
+      
+      
+      <li><a href="/clean/clean-1/"><b>Guideline 1:</b> Decoupled business logic</a></li>
+      
+      <li><a href="/clean/clean-2/"><b>Guideline 2:</b> The outer architectural layer</a></li>
+      
+      <li><a href="/clean/clean-3/"><b>Guideline 3:</b> Framework and devices layer</a></li>
+      
+      <li><a href="/clean/clean-4/"><b>Guideline 4:</b> Each architectural layer should possess its own data model</a></li>
+      
+      <li><a href="/clean/clean-5/"><b>Guideline 5:</b> The UI thread </a></li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+          <header class="post-header">
+            <h1 class="post-title">Business logic should be completely decoupled from the Android framework.</h1>
+            <br />
+          </header>
+          <article class="post-content">
+            <h3>Why?</h3>
+<p>By adhering to
+the clean architecture principles, the innermost layers of an
+app (i.e., where all the business logic of the app resides)
+should be “frontend agnostic”. This means that this layers are
+completely decoupled from the Android framework, and could
+be ideally implemented as pure Java packages. Additionally,
+as this layers represent the core of Android apps, they should
+be developed before all other layers. Changes to the innermost
+layers should be driven exclusively by business decisions.</p>
+
+<h3>Example</h3>
+<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication">MVP example</a>.</p>
+
+<p>If we take a look at our MVP example we see that almost everything is decoupled from our 
+Android framework. Only the Activity is coupled to the Android framework. The Presenter only 
+views this MainActivity as a View. So there is no direct link to the Android framework.</p>
+
+<figure>
+  <img src="/assets/BossApplication_lifecycle.png" alt="Login Injection" width="90%" />
+</figure>
+
+<p>Each component can easily be tested. 
+	Since the MainPresenter has no actual reference to the MainActivity the 
+MainPresenter is Android-independent making the presenter testable without an emulator.</p>
+
+<script src="https://gist.github.com/Geertdepont/e8e9996406425a39462b5f03ec0896ff.js"></script>
+
+<p>When the Presenter wants the view to show the users, it calls, mainView.showUsers(Employees).</p>
+
+<p>These are methods accessible by the MainPresenter:
+<script src="https://gist.github.com/Geertdepont/608af87f6a302b6d5f66da2582dd5b0c.js"></script></p>
+
+<p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication">Github page</a> to view the complete repository.</p>
+
+<p><a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">Go to the github page</button></a></p>
+
+<p>This guideline was extracted from:</p>
+<table id="guidelinelinks">
+  <tr>
+    <th>Id</th>
+    <th>Guideline</th>
+    <th>URL</th>
+  </tr>
+
+ <tr>
+    <td>120</td>
+    <td>Business logic shouldn’t know where the data comes from. Act locally, but sync globally.</td>
+    <td><a href="https://dev.to/wahibhaq/a-brief-summary-of-thoughts-on-clean-architecture-and-mvp-48h9" target="_blank"> https://dev.to/wahibhaq/a-brief-summary-of-thoughts-on-clean-architecture-and-mvp-48h9</a></td>
+ </tr>
+
+ <tr>
+    <td>122</td>
+    <td>Business logic doesn’t touch Android directly anymore and this should result in a decoupled codebase.</td>
+    <td><a href="https://dev.to/wahibhaq/a-brief-summary-of-thoughts-on-clean-architecture-and-mvp-48h9" target="_blank"> https://dev.to/wahibhaq/a-brief-summary-of-thoughts-on-clean-architecture-and-mvp-48h9</a></td>
+ </tr>
+
+ <tr>
+    <td>189</td>
+    <td>Domain layer: all the logic happens in this layer. Regarding the android project, you will see all the interactors (use cases) implementations here as well. This layer is a pure java module without any android dependencies. All the external components use interfaces when connecting to the business objects.</td>
+    <td><a href="https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/" target="_blank"> https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/</a></td>
+ </tr>
+
+ <tr>
+    <td>205</td>
+    <td>The business logic layer does not contain any framework specific code and you should be able to run it without an emulator. This layer does not contain any framework specific code and you should be able to run it without an emulator.</td>
+    <td><a href="https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029" target="_blank"> https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029</a></td>
+ </tr>
+
+
+ <tr>
+    <td>207</td>
+    <td>Your business logic models might not be appropriate for showing them to the user directly. Perhaps you need to show a combination of multiple business logic models at once. Therefore, I suggest you create a ViewModel class that makes it easier for you to display it to the UI. Then, you use a converter class in the outer layer to convert your business models to the appropriate ViewModel.</td>
+    <td><a href="https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029" target="_blank"> https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029</a></td>
+ </tr>
+
+ <tr>
+    <td>221</td>
+    <td>This layer domain sits on top of the data and is responsible for coordinating the actions to the repository. It can also perform some mappings to prepare the objects coming from the data layer, that way the presentation layer can consume them easily. The domain layer is 100% Java only, meaning that there are no Android framework related objects here. [Reactive Clean Architecture]</td>
+    <td><a href="https://medium.com/insiden26/reactive-clean-architecture-with-android-architecture-components-685a6682e0ca" target="_blank"> https://medium.com/insiden26/reactive-clean-architecture-with-android-architecture-components-685a6682e0ca</a></td>
+ </tr>
+
+ <tr>
+    <td>244</td>
+    <td>On clean code ark domain module. If you want an extra challenge with a reward of eternal glory and a totally clean design, you can make that module a pure Java module. It will prevent you from taking shortcuts and putting something related to the Android here.</td>
+    <td><a href="https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/" target="_blank"> https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/</a></td>
+ </tr>
+
+ <tr>
+    <td>247</td>
+    <td>On clean ark We have pushed Android and the realworld stuff as far out on the outskirts as we can. Business logic doesn’t touch the Android directly anymore.</td>
+    <td><a href="https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/" target="_blank"> https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/</a></td>
+ </tr>
+
+ <tr>
+    <td>248</td>
+    <td>On clean ark We have nicely separated classes that are easy to test. Classes touching the world can be tested using Android test cases; the one not touching it can be tested using JUnit. Someone malevolent would maybe call that class explosion. I call it testable. :)</td>
+    <td><a href=" https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/" target="_blank"> https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/</a></td>
+ </tr>
+
+ <tr>
+    <td>257</td>
+    <td>Layer Models: Enterprise Business Rules: The first layer is the enterprise business rules, the core business rules of our application. For example, Twitter’s rules might be a profile or a tweet. Unless the needs of your business change, you should never need to touch these once they have been created. These can also be created before you write your UI.</td>
+    <td><a href="https://academy.realm.io/posts/converting-an-app-to-use-clean-architecture/" target="_blank"> https://academy.realm.io/posts/converting-an-app-to-use-clean-architecture/</a></td>
+ </tr>
+
+ <tr>
+    <td>186</td>
+    <td> The purpose is the separation of concerns by keeping the business rules not knowing anything at all about the outside world, thus, they can can be tested without any dependency to any external element. To achieve this, my proposal is about breaking up the project into 3 different layers, in which each one has its own purpose and works separately from the others. It is worth mentioning that each layer uses its own data model so this independence can be reached (you will see in code that a data mapper is needed in order to accomplish data transformation, a price to be paid if you do not want to cross the use of your models over the entire application).</td>
+    <td><a href=" https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/" target="_blank"> https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/</a></td>
+ </tr>
+
+ <tr>
+    <td>222</td>
+    <td> This presentation layer is the last layer, responsible for building the objects the views are going to consume and processing the actions performed in this views. This is also the layer where the Android Architecture Components are used, more specifically, the LiveData and the ViewModel.</td>
+    <td><a href=" https://medium.com/insiden26/reactive-clean-architecture-with-android-architecture-components-685a6682e0ca" target="_blank"> https://medium.com/insiden26/reactive-clean-architecture-with-android-architecture-components-685a6682e0ca</a></td>
+ </tr>
+
+ <tr>
+    <td>242</td>
+    <td> MVP, To solve god presenter introduce some manager. You don’t have to name it "manager." There are lots of names for these kind of classes: utils, helpers, fooBarBuzzator, etc. So, we introduced managers. Business logic is contained in the manager classes. Stakeholders know where to look at, concerns are sort of separated</td>
+    <td><a href=" https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/" target="_blank"> https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/</a></td>
+ </tr>
+
+</table>
+
+
+          </article>
+          <div class="PageNavigation">
+            
+            <a class="next" href="/mvvm/mvvm-10/">&laquo; Previous page </a>
+            
+            
+            <a class="prev" href="/clean/clean-2/"> Next page &raquo;</a>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container" style="text-align: center;">
+		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a></p>
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/navigation.js"></script>
+<script src="/styles/js/application.js"></script>
+
+  </body>
+</html>
+

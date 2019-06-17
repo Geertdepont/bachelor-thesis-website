@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inject dependencies to Presenters into the Views when instantiating the Presenters, as this reduces coupling issues and null checks. - Guidelines for Architecting Android Apps</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <!--<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/mvp/mvp-10/">
+  <link rel="alternate" type="application/rss+xml" title="Guidelines for Architecting Android Apps" href="/feed.xml">
+
+
+  <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+  <meta name="keywords" content="Inject dependencies to Presenters into the Views when instantiating the Presenters, as this reduces coupling issues and null checks., Guidelines for Architecting Android Apps, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/generic/generic-1/">Generic</a>
+        </li>
+        <li>
+          <a href="/mvvm/mvvm-1/">MVVM</a>
+        </li>
+        <li>
+          <a href="/mvp/mvp-1/">MVP</a>
+        </li>
+        <li>
+          <a href="/clean/clean-1/">Clean</a>
+        </li>
+        <li>
+          <a href="/credits/">Credits</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <!--<div class="docs-header" id="content">-->
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  	<!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/mvp" style="text-transform: uppercase;">mvp</a>	/
+    
+  </div>
+</div>
+
+
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebarpost hidden-print" role="complementary">
+        <div id="navigation">
+  <h1 style="text-transform: uppercase;">mvp</h1>
+  <div style="height: 200px;width: 200px;">
+    <ul id="frontpagenav" class="nav sidenav">
+      
+      
+      <li><a href="/mvp/mvp-1/"><b>Guideline 1:</b> Provide views with data</a></li>
+      
+      <li><a href="/mvp/mvp-2/"><b>Guideline 2:</b> Presenters should be Android- and framework-independent.</a></li>
+      
+      <li><a href="/mvp/mvp-3/"><b>Guideline 3:</b> Data provided by Models via app-scoped dedicated components.</a></li>
+      
+      <li><a href="/mvp/mvp-4/"><b>Guideline 4:</b> Clearly define contracts between Views and Presenters.</a></li>
+      
+      <li><a href="/mvp/mvp-5/"><b>Guideline 5:</b> Lifecycle of Presenters</a></li>
+      
+      <li><a href="/mvp/mvp-6/"><b>Guideline 6:</b> Avoid too many responsibilities in the Presenters</a></li>
+      
+      <li><a href="/mvp/mvp-7/"><b>Guideline 7:</b> Make Presenters dependent on Views</a></li>
+      
+      <li><a href="/mvp/mvp-8/"><b>Guideline 8:</b> Views are passive</a></li>
+      
+      <li><a href="/mvp/mvp-9/"><b>Guideline 9:</b> Keep business logic out of activities and views.</a></li>
+      
+      <li><a href="/mvp/mvp-10/"><b>Guideline 10:</b> Inject dependencies to Presenters into the Views</a></li>
+      
+      <li><a href="/mvp/mvp-11/"><b>Guideline 11:</b> Do not let presenters communicate with each other.</a></li>
+      
+      <li><a href="/mvp/mvp-12/"><b>Guideline 12:</b> Retain fragments for avoiding memory leaks</a></li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+          <header class="post-header">
+            <h1 class="post-title">Inject dependencies to Presenters into the Views when instantiating the Presenters, as this reduces coupling issues and null checks.</h1>
+            <br />
+          </header>
+          <article class="post-content">
+            <h3>Why?</h3>
+<p>Injecting presenters using Dagger reduces null checks and setPresenter() methods. 
+Whenever an activity is used, Dagger couples the view with the Presenter.
+ Which ultimately results into clearer code.</p>
+
+<h3>Example</h3>
+<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank">MVP login Application</a>.</p>
+
+<p>The ViewUserModule provides the ViewUserComponent with the ViewUserPresenter.</p>
+
+<script src="https://gist.github.com/Geertdepont/bb5770a60eff27f2da993c3f46a140d0.js"></script>
+
+<p>This ViewUserPresenter gets initialized with the viewUsersView. Which is added when the 
+module is instantiated.</p>
+
+<script src="https://gist.github.com/Geertdepont/6bfd1948147766a44579173049aaa979.js"></script>
+
+<p>Which happens in the viewUsersActivity.	So whenever a new Presenter is created, the Presenter always has a relationship with a view. So this is never null.</p>
+
+<p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank">Github page</a> to view the complete repository.</p>
+
+<p><a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">Go to the github page</button></a></p>
+
+<p>This guideline was extracted from:</p>
+<table id="guidelinelinks">
+  <tr>
+    <th>Id</th>
+    <th>Guideline</th>
+    <th>URL</th>
+  </tr>
+    <tr>
+      <td>267</td>
+      <td>[MVP] Presenter: In the implementation of the constructor, the Presenter will call the setPresenter method of the View. This can be simplified when using a dependency injection framework that allows the injection of the Presenters in the corresponding views, reducing the coupling of the classes.</td>
+     <td><a href="https://medium.com/upday-devs/android-architecture-patterns-part-3-model-view-viewmodel-e7eeee76b73b" target="_blank">https://medium.com/upday-devs/android-architecture-patterns-part-3-model-view-viewmodel-e7eeee76b73b</a></td>
+    </tr> 
+    <tr>
+      <td>131</td>
+      <td>Introducing a method in presenter which accepts the view reference requires null checks at many places, so avoid it if you can and instead use constructor.</td>
+     <td><a href="https://www.pluralsight.com/guides/mvp-with-testing-part-1" target="_blank">https://www.pluralsight.com/guides/mvp-with-testing-part-1</a></td>
+    </tr> 
+     
+</table>
+
+
+          </article>
+          <div class="PageNavigation">
+            
+            <a class="next" href="/mvp/mvp-9/">&laquo; Previous page </a>
+            
+            
+            <a class="prev" href="/mvp/mvp-11/"> Next page &raquo;</a>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container" style="text-align: center;">
+		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a></p>
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/navigation.js"></script>
+<script src="/styles/js/application.js"></script>
+
+  </body>
+</html>
+

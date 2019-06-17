@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> The outer architectural layer should contain the entirety of the app’s UI components. - Guidelines for Architecting Android Apps</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <!--<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/clean/clean-2/">
+  <link rel="alternate" type="application/rss+xml" title="Guidelines for Architecting Android Apps" href="/feed.xml">
+
+
+  <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+  <meta name="keywords" content=" The outer architectural layer should contain the entirety of the app’s UI components., Guidelines for Architecting Android Apps, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/generic/generic-1/">Generic</a>
+        </li>
+        <li>
+          <a href="/mvvm/mvvm-1/">MVVM</a>
+        </li>
+        <li>
+          <a href="/mvp/mvp-1/">MVP</a>
+        </li>
+        <li>
+          <a href="/clean/clean-1/">Clean</a>
+        </li>
+        <li>
+          <a href="/credits/">Credits</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <!--<div class="docs-header" id="content">-->
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  	<!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/clean" style="text-transform: uppercase;">clean</a>	/
+    
+  </div>
+</div>
+
+
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebarpost hidden-print" role="complementary">
+        <div id="navigation">
+  <h1 style="text-transform: uppercase;">clean</h1>
+  <div style="height: 200px;width: 200px;">
+    <ul id="frontpagenav" class="nav sidenav">
+      
+      
+      <li><a href="/clean/clean-1/"><b>Guideline 1:</b> Decoupled business logic</a></li>
+      
+      <li><a href="/clean/clean-2/"><b>Guideline 2:</b> The outer architectural layer</a></li>
+      
+      <li><a href="/clean/clean-3/"><b>Guideline 3:</b> Framework and devices layer</a></li>
+      
+      <li><a href="/clean/clean-4/"><b>Guideline 4:</b> Each architectural layer should possess its own data model</a></li>
+      
+      <li><a href="/clean/clean-5/"><b>Guideline 5:</b> The UI thread </a></li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+          <header class="post-header">
+            <h1 class="post-title"> The outer architectural layer should contain the entirety of the app’s UI components.</h1>
+            <br />
+          </header>
+          <article class="post-content">
+            <h3>Why?</h3>
+<p>In order to ensure
+a clear separation of concerns among the clean architecture
+layers of an app, it is paramount that everything related to
+Android UI is grouped in a module residing in the outer
+architectural layer. As the other architectural layers of the
+app should be “frontend agnostic” (see guideline CLEAN-1),
+different patterns (e.g., MVP or MVVM) can be implemented
+in this layer. Activities and Fragments should not handle any
+other logic than the one necessary to render the UI. This allows
+a clear separation of concern among the architectural layers
+of an app, enhancing the understandability, modifiable and
+testability of its components.</p>
+
+<h3>Example</h3>
+<p>If we compare our BossApplication with our MVVM example,
+ we see that they are actually quite similar. They both use a repository to provide the data.
+ If we want we can even build an MVVM from the model from our MVP BossAplication.</p>
+
+<p>MVP depicted:</p>
+<figure>
+  <img src="/assets/BossApplication_lifecycle.png" alt="Login Injection" width="500" />
+</figure>
+
+<p><br />
+MVVM depicted:</p>
+<figure>
+  <img src="/assets/MVVM_depicted.png" alt="Login Injection" width="500" />
+</figure>
+
+<p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank">MVP example</a> and the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample" target="_blank">MVVM example</a> to view the complete repositories.</p>
+
+<p><a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">MVP example</button></a>
+<a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/ArchitectureExample" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">MVVM example</button></a></p>
+
+<p>This guideline was extracted from:</p>
+<table id="guidelinelinks">
+  <tr>
+    <th>Id</th>
+    <th>Guideline</th>
+    <th>URL</th>
+  </tr>
+
+ <tr>
+    <td>124</td>
+    <td> No compulsion to use Presenters to handle presentation logic, we could say that Clean architecture is "frontend" agnostic – meaning we can use MVP, MVVM or anything else on top of it.</td>
+    <td><a href=" https://dev.to/wahibhaq/a-brief-summary-of-thoughts-on-clean-architecture-and-mvp-48h9" target="_blank"> https://dev.to/wahibhaq/a-brief-summary-of-thoughts-on-clean-architecture-and-mvp-48h9</a></td>
+ </tr>
+
+ <tr>
+    <td>188</td>
+    <td> Fragments and activities are only views, there is no logic inside them other than UI logic, and this is where all the rendering stuff takes place.</td>
+    <td><a href=" https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/" target="_blank"> https://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/</a></td>
+ </tr>
+
+ <tr>
+    <td>252</td>
+    <td> On clean ark Although it’s a bit hidden, the same data flow inversion principle still holds, because without RxJava presenters were implementing the callback, and with RxJava subscribers are also contained in the outer layer – somewhere in the presenter.</td>
+    <td><a href=" https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/" target="_blank"> https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/</a></td>
+ </tr>
+
+ <tr>
+    <td>246</td>
+    <td> On clean code ark we group everything related to the UI (including presenters) into the UI module. You can explicitly name it UI but because of all the Android stuff here, we leave it named "app," just as Android Studio named it during the creation of the project.</td>
+    <td><a href=" https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/" target="_blank"> https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/</a></td>
+ </tr>
+
+ <tr>
+    <td>251</td>
+    <td> On clean ark The easiest part, app module (UI module). This module is already created for you by the Android studio when you create a project. Here you can place all the classes related to the Android UI such as presenters, controllers, view models, adapters and views.</td>
+    <td><a href=" https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/" target="_blank"> https://five.agency/android-architecture-part-1-every-new-beginning-is-hard/</a></td>
+ </tr>
+</table>
+
+
+          </article>
+          <div class="PageNavigation">
+            
+            <a class="next" href="/clean/clean-1/">&laquo; Previous page </a>
+            
+            
+            <a class="prev" href="/clean/clean-3/"> Next page &raquo;</a>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container" style="text-align: center;">
+		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a></p>
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/navigation.js"></script>
+<script src="/styles/js/application.js"></script>
+
+  </body>
+</html>
+
