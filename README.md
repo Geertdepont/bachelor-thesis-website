@@ -32,7 +32,8 @@ ruby -v
 ```
 
 ## Applications described
-The code examples that are used as code example can be found on the [GitHub page](https://github.com/Geertdepont/bachelor_thesis/tree/master/bachelor-thesis-site).
+
+The applications that are used as code example can be found on the [GitHub page](https://github.com/Geertdepont/bachelor_thesis/tree/master/bachelor-thesis-site).
 
 
 ## Deployment
