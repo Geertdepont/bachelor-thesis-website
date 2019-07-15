@@ -49,7 +49,7 @@ Then all the files in the _site folder can be dropped in on the server.
 ## Built With
 
 * [Jekyll](https://jekyllrb.com/) - The web framework used
-*  [LessCss](http://lesscss.cn/) - The styling from the website.
+* [LessCss](http://lesscss.cn/) - The styling from the website.
 
 ## Versioning
 
