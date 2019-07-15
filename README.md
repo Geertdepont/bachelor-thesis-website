@@ -56,5 +56,5 @@ Then all the files in the _site folder can be dropped in on the server.
 
 ## Authors of the website
 
-* **Roberto Verdecchia** - **Ivano Malavolta** - **Patricia Lago** **Geert de Pont** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Roberto Verdecchia** - **Ivano Malavolta** - **Patricia Lago** - **Geert de Pont** - *Initial work* 
 
