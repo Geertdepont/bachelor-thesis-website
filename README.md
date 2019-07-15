@@ -6,6 +6,8 @@ These guidelines can be found [here](https://robertoverdecchia.github.io/papers/
 This website was made using [Jekyll](https://jekyllrb.com/).
 The theme [LessCss](http://lesscss.cn/) is modified to create this website.
 On these website the guidelines are described using code examples and descriptions.
+The Android architectures that are described on this website are MVVM and MVP. 
+Also generic architectural practices are described to improve applications. 
 
 ## Making modifications of this website
 
@@ -28,6 +30,9 @@ To find the version of ruby, run in the command line:
 ```
 ruby -v
 ```
+
+## Applications described
+The code examples that are used as code example can be found on the [GitHub page](https://github.com/Geertdepont/bachelor_thesis/tree/master/bachelor-thesis-site).
 
 
 ## Deployment
