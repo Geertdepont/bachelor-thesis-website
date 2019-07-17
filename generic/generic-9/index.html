@@ -143,7 +143,7 @@
       <div class="panel docs-content">
         <div class="wrapper">
           <header class="post-header">
-            <h1 class="post-title">Use exclusively interfaces to let app modules communicate. This protects the architectural structure and helps defining a clear responsibility of modules.</h1>
+            <h1 class="post-title">GENERIC-9: Use exclusively interfaces to let app modules communicate. This protects the architectural structure and helps defining a clear responsibility of modules.</h1>
             <br />
           </header>
           <article class="post-content">
@@ -181,32 +181,6 @@ OnSuccess() is called if the data is successfully retrieved from cache, or is ne
 <p>Check out the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank">Github page</a> to view the complete repository.</p>
 
 <p><a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">Go to the github page</button></a></p>
-
-<p>This guideline was extracted from:</p>
-<table id="guidelinelinks">
-  <tr>
-    <th>Id</th>
-    <th>Guideline</th>
-    <th>URL</th>
-  </tr>
-    <tr>
-      <td>93</td>
-      <td>Expose as little as possible from each module. Don't be tempted to create just that one shortcut that exposes an internal implementation detail from one module. You might gain a bit of time in the short term, but you then incur technical debt many times over as your codebase evolves.</td>
-      <td><a href="https://developer.android.com/jetpack/docs/guide" target="_blank">https://developer.android.com/jetpack/docs/guide</a></td>
-    </tr>      
-     <tr>
-      <td>147</td>
-      <td>I started to use interfaces for linking the modules together. That way, they can’t access methods other than the ones declared on the interface. This protects the structure and helps defining a clear responsibility for each module, avoiding developer mistakes like putting the logic in the wrong place.</td>
-      <td><a href="https://cheesecakelabs.com/blog/using-viper-architecture-android/" target="_blank">https://cheesecakelabs.com/blog/using-viper-architecture-android/</a></td>
-    </tr>        
-    <tr>
-      <td>142</td>
-      <td>Components have explicitly defined inputs. A component takes all its inputs via the constructor. Specifying, the necessary inputs in the constructor ensures some compile time safety by guaranteeing that we have all values available before creating the Component. Another advantage of explicit inputs is that during testing we can mock these dependencies easily and test the component in isolation.</td>
-      <td><a href="https://blog.gojekengineering.com/an-architectural-overview-of-the-new-go-jek-rider-app-bb1dbd174323" target="_blank">https://blog.gojekengineering.com/an-architectural-overview-of-the-new-go-jek-rider-app-bb1dbd174323</a></td>
-    </tr>     
- 
-    
-</table>
 
 
           </article>
